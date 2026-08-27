@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rede Saneamento — Portal de Projetos</title>
+<meta name="description" content="Acompanhe projetos novos, em teste e em operação nas maiores empresas de saneamento do Brasil." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TITLE BLOCK — cabeçalho estilo prancha de engenharia -->
+  <header class="title-block">
+    <div class="title-block__grid">
+      <div class="title-block__brand">
+        <span class="title-block__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="34" height="34">
+            <circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 8 C20 8 12 18 12 24 A8 8 0 0 0 28 24 C28 18 20 8 20 8 Z" fill="currentColor"/>
+          </svg>
+        </span>
+        <div>
+          <p class="title-block__eyebrow">Portal de acompanhamento — setor de saneamento</p>
+          <h1 class="title-block__title">Rede Saneamento</h1>
+        </div>
+      </div>
+      <dl class="title-block__meta">
+        <div>
+          <dt>Atualizado em</dt>
+          <dd id="meta-data">—</dd>
+        </div>
+        <div>
+          <dt>Empresas</dt>
+          <dd id="meta-empresas">—</dd>
+        </div>
+        <div>
+          <dt>Notícias</dt>
+          <dd id="meta-projetos">—</dd>
+        </div>
+      </dl>
+    </div>
+  </header>
+
+  <!-- HERO — diagrama de rede animado -->
+  <section class="hero">
+    <div class="hero__text">
+      <p class="hero__label">Atualização automática mensal</p>
+      <h2 class="hero__headline">Projetos de água e esgoto,<br>do papel à operação.</h2>
+      <p class="hero__sub">Reunimos, todo mês, o que as maiores companhias e agências de saneamento do Brasil e do mundo estão testando ou já colocaram para funcionar — estações, tecnologia, redes e obras.</p>
+    </div>
+    <div class="hero__diagram" aria-hidden="true">
+      <svg id="network-svg" viewBox="0 0 520 320" width="100%" height="100%">
+        <!-- linhas (canos) desenhadas via JS -->
+      </svg>
+    </div>
+  </section>
+
+  <!-- LEGENDA / FILTROS — como camadas de um desenho técnico -->
+  <section class="legend" aria-label="Filtros">
+    <div class="legend__row">
+      <span class="legend__title">Situação</span>
+      <div class="legend__status" id="status-filters">
+        <button class="chip chip--status is-active" data-status="todos">Todos</button>
+        <button class="chip chip--status" data-status="em_operacao">Em operação</button>
+        <button class="chip chip--status" data-status="em_teste">Em teste</button>
+      </div>
+    </div>
+    <div class="legend__row">
+      <span class="legend__title">Empresas</span>
+      <select class="company-select" id="company-filter" aria-label="Filtrar por empresa">
+        <option value="todos">Todas as empresas</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- LISTA DE NOTÍCIAS -->
+  <main class="sheet">
+    <div class="sheet__header">
+      <h3>Notícias de projetos</h3>
+      <p class="sheet__count" id="results-count"></p>
+    </div>
+    <div class="cards" id="cards-container">
+      <!-- preenchido via JS -->
+    </div>
+    <p class="empty-state" id="empty-state" hidden>Nenhum projeto encontrado com esses filtros. Tente limpar alguma camada acima.</p>
+  </main>
+
+  <footer class="footer">
+    <p>Rede Saneamento — dados coletados automaticamente das páginas de notícias de cada companhia, uma vez por mês. Sempre confira a matéria original pelo link antes de citar.</p>
+  </footer>
+
+  <!-- MODAL — visão completa da notícia -->
+  <div class="modal-overlay" id="modal-overlay" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+      <button class="modal__close" id="modal-close" aria-label="Fechar">✕</button>
+      <span class="modal__stamp" id="modal-stamp"></span>
+      <p class="modal__meta" id="modal-meta"></p>
+      <h2 class="modal__title" id="modal-titulo"></h2>
+      <p class="modal__resumo" id="modal-resumo"></p>
+      <a class="modal__cta" id="modal-link" href="#" target="_blank" rel="noopener noreferrer">
+        Ler matéria completa no site oficial →
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

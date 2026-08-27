@@ -1,0 +1,183 @@
+{
+  "_leia_me": "Cada empresa tem uma 'fonte' (página de notícias). O robô tenta primeiro RSS (mais confiável); se não houver, ele varre a página de notícias (HTML). Sites mudam o layout de vez em quando — se uma empresa parar de trazer notícias, o primeiro lugar pra checar é o campo 'pagina_noticias' abaixo (o link pode ter mudado).",
+
+  "palavras_chave_projeto": [
+    "projeto", "obra", "estação", "ETE", "ETA", "piloto", "teste", "testes",
+    "inaugur", "implanta", "moderniza", "tecnologia", "investimento",
+    "expansão", "ampliação", "reúso", "reuso", "dessalin", "digital",
+    "smart", "inteligente", "sustentáv", "inova",
+    "research", "innovation", "pilot", "desalination", "reuse", "recycl",
+    "technology", "funding", "demonstration"
+  ],
+
+  "empresas": [
+    {
+      "id": "sabesp",
+      "nome": "Sabesp",
+      "estado": "SP",
+      "site": "https://www.sabesp.com.br",
+      "pagina_noticias": "https://www.sabesp.com.br/a-sabesp/central-noticias/noticias",
+      "rss": null
+    },
+    {
+      "id": "copasa",
+      "nome": "Copasa",
+      "estado": "MG",
+      "site": "https://www.copasa.com.br",
+      "pagina_noticias": "https://www.copasa.com.br/imprensa/noticias",
+      "rss": null
+    },
+    {
+      "id": "cedae",
+      "nome": "Cedae",
+      "estado": "RJ",
+      "site": "https://www.cedae.com.br",
+      "pagina_noticias": "https://www.cedae.com.br/noticias",
+      "rss": null
+    },
+    {
+      "id": "sanepar",
+      "nome": "Sanepar",
+      "estado": "PR",
+      "site": "https://site.sanepar.com.br",
+      "pagina_noticias": "https://site.sanepar.com.br/imprensa/noticias",
+      "rss": null
+    },
+    {
+      "id": "caesb",
+      "nome": "Caesb",
+      "estado": "DF",
+      "site": "https://www.caesb.df.gov.br",
+      "pagina_noticias": "https://www.caesb.df.gov.br/noticias.html",
+      "rss": null
+    },
+    {
+      "id": "corsan",
+      "nome": "Corsan",
+      "estado": "RS",
+      "site": "https://www.corsan.com.br",
+      "pagina_noticias": "https://www.corsan.com.br/noticias",
+      "rss": null
+    },
+    {
+      "id": "compesa",
+      "nome": "Compesa",
+      "estado": "PE",
+      "site": "https://servicos.compesa.com.br",
+      "pagina_noticias": "https://servicos.compesa.com.br/noticias/",
+      "rss": null
+    },
+    {
+      "id": "cagece",
+      "nome": "Cagece",
+      "estado": "CE",
+      "site": "https://www.cagece.com.br",
+      "pagina_noticias": "https://www.cagece.com.br/noticias/",
+      "rss": null
+    },
+    {
+      "id": "embasa",
+      "nome": "Embasa",
+      "estado": "BA",
+      "site": "https://www.embasa.ba.gov.br",
+      "pagina_noticias": "https://www.embasa.ba.gov.br/index.php/comunicacao/noticias",
+      "rss": null
+    },
+    {
+      "id": "aegea",
+      "nome": "Aegea Saneamento",
+      "estado": "Nacional (privada)",
+      "site": "https://www.aegea.com.br",
+      "pagina_noticias": "https://www.aegea.com.br/noticias/",
+      "rss": null
+    },
+    {
+      "id": "brk",
+      "nome": "BRK Ambiental",
+      "estado": "Nacional (privada)",
+      "site": "https://www.brkambiental.com.br",
+      "pagina_noticias": "https://www.brkambiental.com.br/imprensa/noticias/",
+      "rss": null
+    },
+    {
+      "id": "aguas_joinville",
+      "nome": "Águas de Joinville",
+      "estado": "SC",
+      "site": "https://www.aguasdejoinville.com.br",
+      "pagina_noticias": "https://www.aguasdejoinville.com.br/?post_type=noticia&s=",
+      "rss": null
+    },
+    {
+      "id": "pub_singapura",
+      "nome": "PUB — Agência Nacional de Águas de Singapura",
+      "estado": "Singapura",
+      "site": "https://www.pub.gov.sg",
+      "pagina_noticias": "https://www.pub.gov.sg/Resources/News-Room/PressReleases",
+      "rss": null
+    },
+    {
+      "id": "mekorot_israel",
+      "nome": "Mekorot — Companhia Nacional de Água de Israel",
+      "estado": "Israel",
+      "site": "https://www.mekorot-int.com",
+      "pagina_noticias": "https://www.mekorot-int.com",
+      "rss": null
+    },
+    {
+      "id": "epa_eua",
+      "nome": "EPA — Agência de Proteção Ambiental dos EUA",
+      "estado": "Estados Unidos",
+      "site": "https://www.epa.gov",
+      "pagina_noticias": "https://www.epa.gov/waterreuse",
+      "rss": null
+    },
+    {
+      "id": "saneatins",
+      "nome": "Saneatins (BRK)",
+      "estado": "TO",
+      "site": "https://www.brkambiental.com.br",
+      "pagina_noticias": "https://www.brkambiental.com.br/imprensa/noticias/",
+      "rss": null
+    },
+    {
+      "id": "deso",
+      "nome": "Deso",
+      "estado": "SE",
+      "site": "https://www.deso-se.com.br",
+      "pagina_noticias": "https://www.deso-se.com.br/v2/noticias",
+      "rss": null
+    },
+    {
+      "id": "sanasa",
+      "nome": "Sanasa Campinas",
+      "estado": "SP",
+      "site": "https://www.sanasa.com.br",
+      "pagina_noticias": "https://www.sanasa.com.br/noticias/",
+      "rss": null
+    },
+    {
+      "id": "igua",
+      "nome": "Iguá Saneamento",
+      "estado": "Nacional (privada)",
+      "site": "https://igua.com.br",
+      "pagina_noticias": "https://igua.com.br/noticias",
+      "rss": null
+    },
+    {
+      "id": "aguas_do_brasil",
+      "nome": "Águas do Brasil",
+      "estado": "Nacional (privada)",
+      "site": "https://www.grupoaguasdobrasil.com.br",
+      "pagina_noticias": "https://www.grupoaguasdobrasil.com.br/imprensa",
+      "rss": null
+    },
+    {
+      "id": "ambiental",
+      "nome": "Ambiental (Grupo Equatorial)",
+      "estado": "Nacional (privada)",
+      "site": "https://www.equatorialambiental.com.br",
+      "pagina_noticias": "https://www.equatorialambiental.com.br/noticias",
+      "rss": null
+    }
+  ]
+}
