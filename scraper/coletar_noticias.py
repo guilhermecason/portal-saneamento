@@ -7,15 +7,17 @@ O QUE ELE FAZ:
      a pagina de noticias em HTML (se nao tiver RSS)
   3. Filtra so as noticias que parecem ser sobre PROJETOS (novos, em teste,
      inaugurados etc) usando a lista de palavras-chave do config.json
-  4. Junta tudo com o que ja existia em data/noticias.json (sem duplicar)
-  5. Salva o resultado final em data/noticias.json, que e o arquivo que o
+  4. Descarta links de menu/rodape/paginas genericas e links quebrados
+     (faz uma checagem real se a pagina existe antes de salvar)
+  5. Junta tudo com o que ja existia em data/noticias.json (sem duplicar)
+  6. Salva o resultado final em data/noticias.json, que e o arquivo que o
      site le para mostrar as noticias
 
 COMO RODAR MANUALMENTE:
   pip install -r requirements.txt
   python coletar_noticias.py
 
-COMO RODAR AUTOMATICO TODA SEMANA:
+COMO RODAR AUTOMATICO TODA MES:
   Ja esta configurado em .github/workflows/coletar-mensal.yml
   Ver instrucoes no README.md
 """
@@ -25,7 +27,7 @@ import hashlib
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import feedparser
 import requests
@@ -43,6 +45,33 @@ HEADERS = {
 }
 
 TIMEOUT = 15
+
+# Textos de link que quase sempre sao menu/rodape/navegacao, nao noticia.
+# Se o texto do link for exatamente (ou quase) um desses, e descartado.
+TEXTOS_IGNORADOS = {
+    "menu", "home", "inicio", "início", "contato", "fale conosco", "ouvidoria",
+    "sobre", "sobre nos", "sobre nós", "quem somos", "transparência",
+    "transparencia", "login", "entrar", "cadastre-se", "cadastrar",
+    "política de privacidade", "politica de privacidade", "termos de uso",
+    "termos e condições", "lgpd", "acessibilidade", "mapa do site",
+    "redes sociais", "facebook", "instagram", "twitter", "linkedin",
+    "youtube", "whatsapp", "telefone", "e-mail", "email", "buscar",
+    "pesquisar", "ver mais", "ver todas", "leia mais", "saiba mais",
+    "compartilhar", "imprimir", "voltar", "próxima", "proxima", "anterior",
+    "carregar mais", "notícias", "noticias", "imprensa", "clipping",
+    "trabalhe conosco", "licitações", "licitacoes", "editais", "ouvidoria",
+    "2ª via", "segunda via", "fatura", "boleto", "serviços", "servicos",
+    "portal do cliente", "área do cliente", "area do cliente",
+}
+
+# Trechos de URL que indicam pagina generica (nao artigo especifico)
+URL_IGNORAR_SE_CONTEM = [
+    "/wp-login", "/login", "/cadastro", "javascript:", "mailto:", "tel:",
+    "/busca?", "?s=", "/tag/", "/categoria/", "/category/", "/page/",
+    "#", "/feed", "/rss", "/contato", "/fale-conosco", "/ouvidoria",
+    "/2via", "/2-via", "/segunda-via", "/politica-de-privacidade",
+    "/termos-de-uso", "/acessibilidade", "/lgpd",
+]
 
 
 def carregar_config():
@@ -63,9 +92,54 @@ def gerar_id(link, titulo):
     return hashlib.sha1(base.encode("utf-8")).hexdigest()[:16]
 
 
+def normalizar_titulo(titulo):
+    """Deixa o titulo 'limpo' pra comparar e evitar duplicados parecidos."""
+    t = (titulo or "").lower().strip()
+    t = re.sub(r"\s+", " ", t)
+    t = re.sub(r"[^\w\s]", "", t)
+    return t
+
+
 def parece_projeto(texto, palavras_chave):
     texto = (texto or "").lower()
     return any(p.lower() in texto for p in palavras_chave)
+
+
+def parece_link_de_menu(texto, href):
+    """Filtra links que quase certamente sao menu/rodape, nao noticia."""
+    texto_limpo = (texto or "").strip().lower()
+
+    if texto_limpo in TEXTOS_IGNORADOS:
+        return True
+
+    # texto muito curto ou so numeros/pontuacao nao e manchete de verdade
+    if len(texto_limpo) < 25:
+        return True
+
+    palavras = texto_limpo.split()
+    if len(palavras) < 5:
+        return True
+
+    href_lower = (href or "").lower()
+    if any(trecho in href_lower for trecho in URL_IGNORAR_SE_CONTEM):
+        return True
+
+    return False
+
+
+def link_existe(url):
+    """Confere se a pagina realmente existe (evita salvar link quebrado)."""
+    try:
+        resp = requests.head(
+            url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True
+        )
+        if resp.status_code == 405:  # site nao aceita HEAD, tenta GET
+            resp = requests.get(
+                url, headers=HEADERS, timeout=TIMEOUT, stream=True
+            )
+        return resp.status_code < 400
+    except Exception:
+        return False
 
 
 def classificar_status(texto):
@@ -99,34 +173,41 @@ def coletar_via_rss(empresa):
 def coletar_via_html(empresa):
     """
     Varredura generica: pega links da pagina de noticias que parecem
-    ser materias (texto do link com mais de ~25 caracteres).
+    ser materias de verdade (nao menu, nao rodape, nao pagina quebrada).
 
     ATENCAO: isso e um fallback generico. Sites de orgaos publicos mudam de
     layout com frequencia — se uma empresa parar de aparecer no site, o
     ajuste mais provavel e customizar o seletor CSS aqui pra essa empresa
-    especifica (ver comentario mais abaixo).
+    especifica.
     """
-    noticias = []
+    candidatos = []
     resp = requests.get(empresa["pagina_noticias"], headers=HEADERS, timeout=TIMEOUT)
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
 
-    candidatos = soup.find_all("a", href=True)
-    vistos = set()
+    vistos_na_pagina = set()
 
-    for a in candidatos:
+    for a in soup.find_all("a", href=True):
         texto = a.get_text(strip=True)
         href = a["href"]
 
-        if not texto or len(texto) < 25:
+        if parece_link_de_menu(texto, href):
             continue
-        if href in vistos:
-            continue
-        vistos.add(href)
 
         link_completo = urljoin(empresa["pagina_noticias"], href)
 
-        noticias.append(
+        # ignora links que voltam pra propria pagina de listagem ou pra home
+        if link_completo.rstrip("/") in (
+            empresa["pagina_noticias"].rstrip("/"),
+            empresa["site"].rstrip("/"),
+        ):
+            continue
+
+        if link_completo in vistos_na_pagina:
+            continue
+        vistos_na_pagina.add(link_completo)
+
+        candidatos.append(
             {
                 "titulo": texto,
                 "resumo": "",
@@ -135,7 +216,15 @@ def coletar_via_html(empresa):
             }
         )
 
-    return noticias[:30]
+    # Confere se o link realmente abre (evita 404) — so faz isso pros
+    # candidatos que ja passaram no filtro de texto, pra nao gastar tempo
+    # checando menu/rodape que ja foi descartado acima.
+    validos = []
+    for c in candidatos[:40]:  # limite de seguranca por empresa
+        if link_existe(c["link"]):
+            validos.append(c)
+
+    return validos[:30]
 
 
 def coletar_empresa(empresa, palavras_chave):
@@ -152,10 +241,17 @@ def coletar_empresa(empresa, palavras_chave):
         return []
 
     filtradas = []
+    titulos_normalizados_nesta_rodada = set()
+
     for n in brutas:
         texto_para_filtro = f"{n['titulo']} {n['resumo']}"
         if not parece_projeto(texto_para_filtro, palavras_chave):
             continue
+
+        titulo_norm = normalizar_titulo(n["titulo"])
+        if titulo_norm in titulos_normalizados_nesta_rodada:
+            continue  # duplicado dentro da mesma coleta
+        titulos_normalizados_nesta_rodada.add(titulo_norm)
 
         filtradas.append(
             {
@@ -172,7 +268,7 @@ def coletar_empresa(empresa, palavras_chave):
             }
         )
 
-    print(f"   {len(filtradas)} noticia(s) relevante(s) encontradas")
+    print(f"   {len(filtradas)} noticia(s) relevante(s) e validada(s) encontradas")
     return filtradas
 
 
@@ -180,14 +276,18 @@ def main():
     config = carregar_config()
     existentes = carregar_noticias_existentes()
     ids_existentes = {n["id"] for n in existentes}
+    titulos_existentes = {normalizar_titulo(n["titulo"]) for n in existentes}
 
     novas_total = []
     for empresa in config["empresas"]:
         novas = coletar_empresa(empresa, config["palavras_chave_projeto"])
         for n in novas:
-            if n["id"] not in ids_existentes:
-                novas_total.append(n)
-                ids_existentes.add(n["id"])
+            titulo_norm = normalizar_titulo(n["titulo"])
+            if n["id"] in ids_existentes or titulo_norm in titulos_existentes:
+                continue
+            novas_total.append(n)
+            ids_existentes.add(n["id"])
+            titulos_existentes.add(titulo_norm)
 
     resultado = novas_total + existentes
     # mais recentes primeiro (quando tem data), limitando o arquivo a 300 itens
