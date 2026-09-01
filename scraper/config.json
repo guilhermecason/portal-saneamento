@@ -10,6 +10,16 @@
     "technology", "funding", "demonstration"
   ],
 
+  "palavras_chave_excluir": [
+    "falta de energia", "falha no fornecimento", "falha na", "interrompe",
+    "paralisa", "paralisação", "rompimento", "vazamento acidental",
+    "manutenção emergencial", "reparo emergencial", "acidente", "temporal",
+    "chuva forte", "chuvas fortes", "desabastecimento", "racionamento",
+    "nota de esclarecimento", "nota à imprensa", "concurso público",
+    "vaga de emprego", "processo seletivo", "licitação", "edital",
+    "tarifa", "reajuste", "conta de água", "fatura", "2ª via", "segunda via"
+  ],
+
   "empresas": [
     {
       "id": "sabesp",
