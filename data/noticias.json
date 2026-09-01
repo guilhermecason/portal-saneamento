@@ -1,5 +1,29 @@
 [
   {
+    "id": "4e7ea07745ad2cb4",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK Informa - 1 de setembro de 2026",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/alagoas/atalaia/brk-informa-1-de-setembro-de-2026",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T12:34:02.403012+00:00"
+  },
+  {
+    "id": "c626f8ce8b034a0f",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK avança com reforma de reservatórios e reforça investimentos na segurança do abastecimento em Porto Ferreira",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/porto-ferreira/brk-avanca-com-reforma-de-reservatorios-e-reforca-investimentos-na-seguranca-do-abastecimento-em-porto-ferreira",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T12:34:02.403126+00:00"
+  },
+  {
     "id": "13f21b0f6f66fd75",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
