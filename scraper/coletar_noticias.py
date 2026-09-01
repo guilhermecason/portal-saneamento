@@ -133,19 +133,51 @@ def parece_link_de_menu(texto, href):
     return False
 
 
-def link_existe(url):
-    """Confere se a pagina realmente existe (evita salvar link quebrado)."""
+def link_existe_e_resumo(url):
+    """
+    Confere se a pagina realmente existe (evita salvar link quebrado) e,
+    de quebra, tenta puxar um resumo da propria pagina da noticia — o mesmo
+    texto que aparece quando alguem compartilha o link no WhatsApp/redes
+    sociais (a 'meta description' da pagina). Quase todo site profissional
+    tem isso, entao costuma funcionar bem mesmo sem RSS.
+
+    Retorna (existe: bool, resumo: str)
+    """
     try:
-        resp = requests.head(
-            url, headers=HEADERS, timeout=TIMEOUT, allow_redirects=True
-        )
-        if resp.status_code == 405:  # site nao aceita HEAD, tenta GET
-            resp = requests.get(
-                url, headers=HEADERS, timeout=TIMEOUT, stream=True
-            )
-        return resp.status_code < 400
+        resp = requests.get(url, headers=HEADERS, timeout=TIMEOUT)
+        if resp.status_code >= 400:
+            return False, ""
+
+        resumo = ""
+        try:
+            soup = BeautifulSoup(resp.text, "html.parser")
+            candidatos_meta = [
+                soup.find("meta", attrs={"property": "og:description"}),
+                soup.find("meta", attrs={"name": "description"}),
+                soup.find("meta", attrs={"name": "twitter:description"}),
+            ]
+            for meta in candidatos_meta:
+                if meta and meta.get("content"):
+                    texto = meta["content"].strip()
+                    texto = re.sub(r"\s+", " ", texto)
+                    if len(texto) > 15:  # ignora meta description vazia/inutil
+                        resumo = texto[:280]
+                        break
+
+            # se nao achou meta description, tenta o primeiro paragrafo
+            # razoavelmente longo do corpo da pagina
+            if not resumo:
+                for p in soup.find_all("p"):
+                    texto = p.get_text(strip=True)
+                    if len(texto) > 60:
+                        resumo = re.sub(r"\s+", " ", texto)[:280]
+                        break
+        except Exception:
+            pass  # se der erro so no resumo, ainda assim o link e valido
+
+        return True, resumo
     except Exception:
-        return False
+        return False, ""
 
 
 def classificar_status(texto):
@@ -222,12 +254,14 @@ def coletar_via_html(empresa):
             }
         )
 
-    # Confere se o link realmente abre (evita 404) — so faz isso pros
-    # candidatos que ja passaram no filtro de texto, pra nao gastar tempo
-    # checando menu/rodape que ja foi descartado acima.
+    # Confere se o link realmente abre (evita 404) e tenta puxar um resumo
+    # da propria pagina da noticia — so faz isso pros candidatos que ja
+    # passaram no filtro de texto, pra nao gastar tempo em menu/rodape.
     validos = []
     for c in candidatos[:40]:  # limite de seguranca por empresa
-        if link_existe(c["link"]):
+        existe, resumo = link_existe_e_resumo(c["link"])
+        if existe:
+            c["resumo"] = resumo
             validos.append(c)
 
     return validos[:30]
