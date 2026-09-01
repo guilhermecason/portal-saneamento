@@ -1,5 +1,53 @@
 [
   {
+    "id": "cd0c53e9847d5851",
+    "empresa_id": "saneatins",
+    "empresa_nome": "Saneatins (BRK)",
+    "estado": "TO",
+    "titulo": "Obras de esgotamento sanitário do subsistema Palmeiras avançam em Rio Claro com 72% de execução",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/rio-claro/obras-de-esgotamento-sanitario-do-subsistema-palmeiras-avancam-em-rio-claro-com-72-de-execucao",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T11:09:12.043498+00:00"
+  },
+  {
+    "id": "57fd7075529a434b",
+    "empresa_id": "saneatins",
+    "empresa_nome": "Saneatins (BRK)",
+    "estado": "TO",
+    "titulo": "BRK realiza obra para reforçar segurança operacional do sistema de abastecimento de água de Limeira",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/limeira/brk-realiza-obra-para-reforcar-seguranca-operacional-do-sistema-de-abastecimento-de-agua-de-limeira",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T11:09:12.043546+00:00"
+  },
+  {
+    "id": "ccba978ad4ed97c6",
+    "empresa_id": "saneatins",
+    "empresa_nome": "Saneatins (BRK)",
+    "estado": "TO",
+    "titulo": "Com projeto do Maranhão, BRK é destaque no Prêmio Valor Inovação",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/maranhao/paco-do-lumiar/com-projeto-do-maranhao-brk-e-destaque-no-premio-valor-inovacao",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T11:09:12.043567+00:00"
+  },
+  {
+    "id": "0ff22991a31b0f94",
+    "empresa_id": "saneatins",
+    "empresa_nome": "Saneatins (BRK)",
+    "estado": "TO",
+    "titulo": "BRK moderniza sistema de filtração da Estação de Tratamento de Água II, em Sumaré",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/sumare/brk-moderniza-sistema-de-filtracao-da-estacao-de-tratamento-de-agua-ii-em-sumare",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-01T11:09:12.043583+00:00"
+  },
+  {
     "id": "af6b06867ead95ce",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
