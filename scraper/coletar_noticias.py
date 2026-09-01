@@ -100,8 +100,14 @@ def normalizar_titulo(titulo):
     return t
 
 
-def parece_projeto(texto, palavras_chave):
+def parece_projeto(texto, palavras_chave, palavras_excluir):
     texto = (texto or "").lower()
+
+    # se tiver qualquer termo de incidente/rotina, descarta na hora,
+    # mesmo que tambem contenha uma palavra-chave de projeto
+    if any(p.lower() in texto for p in palavras_excluir):
+        return False
+
     return any(p.lower() in texto for p in palavras_chave)
 
 
@@ -227,7 +233,7 @@ def coletar_via_html(empresa):
     return validos[:30]
 
 
-def coletar_empresa(empresa, palavras_chave):
+def coletar_empresa(empresa, palavras_chave, palavras_excluir):
     print(f"-> Coletando: {empresa['nome']}")
     brutas = []
 
@@ -245,7 +251,7 @@ def coletar_empresa(empresa, palavras_chave):
 
     for n in brutas:
         texto_para_filtro = f"{n['titulo']} {n['resumo']}"
-        if not parece_projeto(texto_para_filtro, palavras_chave):
+        if not parece_projeto(texto_para_filtro, palavras_chave, palavras_excluir):
             continue
 
         titulo_norm = normalizar_titulo(n["titulo"])
@@ -280,7 +286,9 @@ def main():
 
     novas_total = []
     for empresa in config["empresas"]:
-        novas = coletar_empresa(empresa, config["palavras_chave_projeto"])
+        novas = coletar_empresa(
+            empresa, config["palavras_chave_projeto"], config["palavras_chave_excluir"]
+        )
         for n in novas:
             titulo_norm = normalizar_titulo(n["titulo"])
             if n["id"] in ids_existentes or titulo_norm in titulos_existentes:
