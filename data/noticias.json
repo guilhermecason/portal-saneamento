@@ -5,7 +5,7 @@
     "empresa_nome": "BRK Ambiental",
     "estado": "Nacional (privada)",
     "titulo": "BRK Informa - 1 de setembro de 2026",
-    "resumo": "",
+    "resumo": "Desde sexta-feira (14/08), às 1h16, o poço P-FA 02, localizado em Maceió, segue operando com a vazão reduzida devido à falha eletromecânica. O trabalho está sendo realizado pela Companhia de Saneamento de Alagoas (Casal), com finalização prevista para a noite de sexta-feira (04/09).",
     "link": "https://www.brkambiental.com.br/alagoas/atalaia/brk-informa-1-de-setembro-de-2026",
     "data_publicada": "",
     "status": "em_operacao",
@@ -17,7 +17,7 @@
     "empresa_nome": "BRK Ambiental",
     "estado": "Nacional (privada)",
     "titulo": "BRK avança com reforma de reservatórios e reforça investimentos na segurança do abastecimento em Porto Ferreira",
-    "resumo": "",
+    "resumo": "Obra está com 35% de avanço e segue em execução; oscilações no abastecimento estão relacionadas à operação temporária do sistema com um dos reservatórios fora de operação",
     "link": "https://www.brkambiental.com.br/porto-ferreira/brk-avanca-com-reforma-de-reservatorios-e-reforca-investimentos-na-seguranca-do-abastecimento-em-porto-ferreira",
     "data_publicada": "",
     "status": "em_operacao",
@@ -46,30 +46,6 @@
     "data_publicada": "",
     "status": "em_operacao",
     "coletado_em": "2026-09-01T12:23:11.144303+00:00"
-  },
-  {
-    "id": "24caac795bfc3abe",
-    "empresa_id": "cedae",
-    "empresa_nome": "Cedae",
-    "estado": "RJ",
-    "titulo": "Política de\r\n                Privacidade e Cookies.",
-    "resumo": "A sua privacidade é importante para nós. É política da CEDAE respeitar a sua privacidade em relação a quaisquer dados pessoais que possam ser coletados no site www.cedae.com.br.",
-    "link": "https://www.cedae.com.br/politicaprivacidade",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:23:11.144326+00:00"
-  },
-  {
-    "id": "d3311b671ff3d7aa",
-    "empresa_id": "sanepar",
-    "empresa_nome": "Sanepar",
-    "estado": "PR",
-    "titulo": "Pesquisa de Satisfação de FornecedoresParticipe",
-    "resumo": "Prezado(a) Fornecedor(a)/Parceiro(a), Na Sanepar, valorizamos a relação que construímos com cada um de nossos fornecedores e parceiros, pois entendemos que o sucesso de nossas operações depende de uma cadeia de suprimentos sólida, transparente e sustentável. Mais do que uma forma",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSfIoKyCLUyTEjcnFp3bAjoFdZrk0r6aY4AGTvFlYdqWHUqq1Q/viewform?usp=header",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:23:34.394443+00:00"
   },
   {
     "id": "873b22504f55d127",
@@ -130,18 +106,6 @@
     "data_publicada": "",
     "status": "em_operacao",
     "coletado_em": "2026-09-01T12:24:25.227550+00:00"
-  },
-  {
-    "id": "1f0cef1df3d658c5",
-    "empresa_id": "compesa",
-    "empresa_nome": "Compesa",
-    "estado": "PE",
-    "titulo": "MUSEU UNIVERSO COMPESA RECEBE REGISTRO DE MUSEUS CONCEDIDO PELO IBRAM",
-    "resumo": "Nestaterça-feira (16), o Museu Universo Compesa recebeu o Certificado de Registro de Museus concedido pelo Instituto Brasileiro de Museus (IBRAM). A entrega ocorreu durante o 1° Encontro Anual de Museus de Pernambuco, promovido pelo IBRAM e pela Secretaria de Cultura de Pernambuc",
-    "link": "https://servicos.compesa.com.br/museu-universo-compesa-recebe-registro-de-museus-concedido-pelo-ibram/",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:24:25.227576+00:00"
   },
   {
     "id": "7204841ff160bf4a",
@@ -228,18 +192,6 @@
     "coletado_em": "2026-09-01T12:26:13.312448+00:00"
   },
   {
-    "id": "12fb6292622ff46c",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "Sign up for the EPA's water reuse email updates",
-    "resumo": "Sign up for the EPA's water reuse email updates to learn about the latest activities and find opportunities to get engaged.",
-    "link": "https://www.epa.gov/waterreuse/forms/sign-water-reuse-email-updates",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.662863+00:00"
-  },
-  {
     "id": "be6f5924a6dc94e1",
     "empresa_id": "epa_eua",
     "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
@@ -264,18 +216,6 @@
     "coletado_em": "2026-09-01T12:26:47.662926+00:00"
   },
   {
-    "id": "6e5330756f984eea",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "Water Reuse Action Plan (2020-2025)",
-    "resumo": "EPA is facilitating development of a National Water Reuse Action Plan in collaboration with other federal agencies, states, tribes, locales, the water sector, and other partners and stakeholders.",
-    "link": "https://www.epa.gov/waterreuse/national-water-reuse-action-plan",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.662944+00:00"
-  },
-  {
     "id": "b9ff046f8cfbcd81",
     "empresa_id": "epa_eua",
     "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
@@ -286,18 +226,6 @@
     "data_publicada": "",
     "status": "em_operacao",
     "coletado_em": "2026-09-01T12:26:47.662969+00:00"
-  },
-  {
-    "id": "8be55bdf8ad5b9fa",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "EPA Regional Contacts for Water Reuse",
-    "resumo": "List of individuals serving as water reuse contacts for their EPA Region.",
-    "link": "https://www.epa.gov/waterreuse/epa-regional-contacts-water-reuse",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.662986+00:00"
   },
   {
     "id": "a5ee30b23d7fcb77",
@@ -312,48 +240,12 @@
     "coletado_em": "2026-09-01T12:26:47.663003+00:00"
   },
   {
-    "id": "ad75392ff37a71ad",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "Webinar Presenting a Framework for Microbial Treatment Targets for Water Reuse",
-    "resumo": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
-    "link": "https://www.youtube.com/watch?v=O1tR5dpwlLw&feature=youtu.be",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.663024+00:00"
-  },
-  {
-    "id": "ffa85875b86714b0",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "Potable Reuse and PFAS Q&A (pdf)",
-    "resumo": "",
-    "link": "https://www.epa.gov/system/files/documents/2024-12/pfas-and-reuse-qa_508.pdf",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.663037+00:00"
-  },
-  {
-    "id": "a2f4dccb5122e8dc",
-    "empresa_id": "epa_eua",
-    "empresa_nome": "EPA — Agência de Proteção Ambiental dos EUA",
-    "estado": "Estados Unidos",
-    "titulo": "Contact Us about Water Reuse and Recycling",
-    "resumo": "The contact us form for the Water Reuse topic at EPA.",
-    "link": "https://www.epa.gov/waterreuse/forms/contact-us-about-water-reuse-and-recycling",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:26:47.663052+00:00"
-  },
-  {
     "id": "cd0c53e9847d5851",
     "empresa_id": "saneatins",
     "empresa_nome": "Saneatins (BRK)",
     "estado": "TO",
     "titulo": "Obras de esgotamento sanitário do subsistema Palmeiras avançam em Rio Claro com 72% de execução",
-    "resumo": "",
+    "resumo": "A BRK, concessionária responsável pelos serviços de esgotamento sanitário em Rio Claro, segue avançando com as obras do Sistema de Esgotamento Sanitário (SES) Palmeiras.",
     "link": "https://www.brkambiental.com.br/rio-claro/obras-de-esgotamento-sanitario-do-subsistema-palmeiras-avancam-em-rio-claro-com-72-de-execucao",
     "data_publicada": "",
     "status": "em_operacao",
@@ -365,7 +257,7 @@
     "empresa_nome": "Saneatins (BRK)",
     "estado": "TO",
     "titulo": "BRK realiza obra para reforçar segurança operacional do sistema de abastecimento de água de Limeira",
-    "resumo": "",
+    "resumo": "A intervenção será realizada entre a noite de quarta-feira (2) e a madrugada de quinta-feira (3) e poderá provocar oscilações no abastecimento em diferentes regiões",
     "link": "https://www.brkambiental.com.br/limeira/brk-realiza-obra-para-reforcar-seguranca-operacional-do-sistema-de-abastecimento-de-agua-de-limeira",
     "data_publicada": "",
     "status": "em_operacao",
@@ -377,7 +269,7 @@
     "empresa_nome": "Saneatins (BRK)",
     "estado": "TO",
     "titulo": "Com projeto do Maranhão, BRK é destaque no Prêmio Valor Inovação",
-    "resumo": "",
+    "resumo": "Pelo quinto ano consecutivo entre as empresas mais inovadoras de infraestrutura, a companhia se consolida na vanguarda do setor, reforçando seu compromisso com soluções transformadoras para o saneamento.",
     "link": "https://www.brkambiental.com.br/maranhao/paco-do-lumiar/com-projeto-do-maranhao-brk-e-destaque-no-premio-valor-inovacao",
     "data_publicada": "",
     "status": "em_operacao",
@@ -389,7 +281,7 @@
     "empresa_nome": "Saneatins (BRK)",
     "estado": "TO",
     "titulo": "BRK estende obra e interdição na Avenida Emílio Bosco, em Sumaré",
-    "resumo": "",
+    "resumo": "A BRK, concessionária responsável pelos serviços de água e esgoto em Sumaré, informa que a obra realizada na Avenida Emílio Bosco, próximo ao Condomínio Gran VIC Barcelona, será estendida até sexta-feira, dia 28, para a conclusão dos serviços de pavimentação.",
     "link": "https://www.brkambiental.com.br/sumare/brk-estende-obra-e-interdicao-na-avenida-emilio-bosco-em-sumare",
     "data_publicada": "",
     "status": "em_operacao",
@@ -408,18 +300,6 @@
     "coletado_em": "2026-09-01T12:28:11.326520+00:00"
   },
   {
-    "id": "2a5fc20d081ddec1",
-    "empresa_id": "aguas_do_brasil",
-    "empresa_nome": "Águas do Brasil",
-    "estado": "Nacional (privada)",
-    "titulo": "Código de Conduta de Terceiros",
-    "resumo": "Código de Conduta de Terceiros O Grupo Águas do Brasil tem o compromisso de promover relações sustentáveis com seus parceiros de negócios, agentes, consultores, fornecedores e outros terceiros, a fim de assegurar que eles manterão os padrões éticos, com adesão",
-    "link": "https://www.grupoaguasdobrasil.com.br/compliance/codigo-de-conduta-de-terceiros-2/",
-    "data_publicada": "",
-    "status": "em_operacao",
-    "coletado_em": "2026-09-01T12:28:11.326588+00:00"
-  },
-  {
     "id": "exemplo001",
     "empresa_id": "sabesp",
     "empresa_nome": "Sabesp",
@@ -429,18 +309,6 @@
     "link": "https://revistaoe.com.br/sabesp-investimento-saneamento-reuso/",
     "data_publicada": "2026-04-10",
     "status": "em_teste",
-    "coletado_em": "2026-08-18T12:00:00+00:00"
-  },
-  {
-    "id": "exemplo002",
-    "empresa_id": "sanepar",
-    "empresa_nome": "Sanepar",
-    "estado": "PR",
-    "titulo": "Sanepar inaugura nova Estação de Tratamento de Esgoto em Quedas do Iguaçu",
-    "resumo": "Nova ETE Campo Novo recebeu investimento de R$ 17,4 milhões e amplia a capacidade de tratamento do município.",
-    "link": "https://www.sanepar.com.br/noticias/sanepar-e-prefeitura-inauguram-nova-estacao-de-tratamento-de-esgoto-em-quedas-do-iguacu",
-    "data_publicada": "2026-06-13",
-    "status": "em_operacao",
     "coletado_em": "2026-08-18T12:00:00+00:00"
   },
   {
