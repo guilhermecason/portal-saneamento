@@ -6,6 +6,16 @@
 <title>Rede Saneamento — Portal de Projetos</title>
 <meta name="description" content="Acompanhe projetos novos, em teste e em operação nas maiores empresas de saneamento do Brasil." />
 
+<!-- Open Graph — preview bonito quando o link for compartilhado -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Rede Saneamento — Portal de Projetos" />
+<meta property="og:description" content="Acompanhe projetos novos, em teste e em operação nas maiores empresas de saneamento do Brasil e do mundo." />
+<meta property="og:url" content="https://guilhermecason.github.io/portal-saneamento/" />
+<meta property="og:locale" content="pt_BR" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Rede Saneamento — Portal de Projetos" />
+<meta name="twitter:description" content="Acompanhe projetos novos, em teste e em operação nas maiores empresas de saneamento do Brasil e do mundo." />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,6 +85,9 @@
       <select class="company-select" id="company-filter" aria-label="Filtrar por empresa">
         <option value="todos">Todas as empresas</option>
       </select>
+      <select class="company-select" id="year-filter" aria-label="Filtrar por ano">
+        <option value="todos">Todos os anos</option>
+      </select>
     </div>
   </section>
 
@@ -105,6 +118,7 @@
       <a class="modal__cta" id="modal-link" href="#" target="_blank" rel="noopener noreferrer">
         Ler matéria completa no site oficial →
       </a>
+      <button class="modal__copiar" id="modal-copiar" type="button">Copiar link</button>
     </div>
   </div>
 
