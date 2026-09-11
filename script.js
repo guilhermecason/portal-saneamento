@@ -12,6 +12,19 @@ const BANDEIRA_PAIS = {
 let TODAS_NOTICIAS = [];
 let filtroStatus = "todos";
 let filtroEmpresa = "todos";
+let filtroAno = "todos";
+
+function dataParaOrdenar(noticia) {
+  // Prioriza a data de publicacao; se nao tiver (ou for invalida),
+  // usa a data em que o robo coletou como aproximacao.
+  const candidatos = [noticia.data_publicada, noticia.coletado_em];
+  for (const c of candidatos) {
+    if (!c) continue;
+    const d = new Date(c);
+    if (!isNaN(d.getTime())) return d;
+  }
+  return new Date(0); // sem nenhuma data valida, vai pro final
+}
 
 async function carregarNoticias() {
   try {
@@ -22,9 +35,34 @@ async function carregarNoticias() {
     TODAS_NOTICIAS = [];
   }
 
+  // mais recentes primeiro
+  TODAS_NOTICIAS.sort((a, b) => dataParaOrdenar(b) - dataParaOrdenar(a));
+
   montarFiltrosDeEmpresa();
+  montarFiltroDeAno();
   atualizarMeta();
   renderizarCards();
+}
+
+function montarFiltroDeAno() {
+  const anos = [...new Set(
+    TODAS_NOTICIAS.map((n) => dataParaOrdenar(n).getFullYear())
+  )].sort((a, b) => b - a);
+
+  const select = document.getElementById("year-filter");
+  select.innerHTML = '<option value="todos">Todos os anos</option>';
+
+  anos.forEach((ano) => {
+    const option = document.createElement("option");
+    option.value = ano;
+    option.textContent = ano;
+    select.appendChild(option);
+  });
+
+  select.addEventListener("change", () => {
+    filtroAno = select.value;
+    renderizarCards();
+  });
 }
 
 function montarFiltrosDeEmpresa() {
@@ -71,7 +109,8 @@ function renderizarCards() {
   const filtradas = TODAS_NOTICIAS.filter((n) => {
     const passaStatus = filtroStatus === "todos" || n.status === filtroStatus;
     const passaEmpresa = filtroEmpresa === "todos" || n.empresa_id === filtroEmpresa;
-    return passaStatus && passaEmpresa;
+    const passaAno = filtroAno === "todos" || String(dataParaOrdenar(n).getFullYear()) === filtroAno;
+    return passaStatus && passaEmpresa && passaAno;
   });
 
   container.innerHTML = "";
@@ -93,11 +132,12 @@ function criarCard(noticia) {
   card.setAttribute("tabindex", "0");
 
   const dataFormatada = formatarData(noticia.data_publicada);
+  const relativo = tempoRelativo(noticia);
   const bandeira = BANDEIRA_PAIS[noticia.estado] ? BANDEIRA_PAIS[noticia.estado] + " " : "";
 
   card.innerHTML = `
     <span class="card__stamp card__stamp--${noticia.status}">${STATUS_LABEL[noticia.status] || "Projeto"}</span>
-    <p class="card__meta">${bandeira}${escapeHtml(noticia.empresa_nome)} · ${escapeHtml(noticia.estado || "")}${dataFormatada ? " · " + dataFormatada : ""}</p>
+    <p class="card__meta">${bandeira}${escapeHtml(noticia.empresa_nome)} · ${escapeHtml(noticia.estado || "")}${dataFormatada ? " · " + dataFormatada : ""}${relativo ? ` <span class="card__relativo">(${relativo})</span>` : ""}</p>
     <h4 class="card__title">${escapeHtml(noticia.titulo)}</h4>
     ${noticia.resumo ? `<p class="card__resumo">${escapeHtml(noticia.resumo)}</p>` : ""}
     <span class="card__link">Ver notícia completa →</span>
@@ -118,18 +158,24 @@ function criarCard(noticia) {
 // ===== Modal de notícia completa =====
 function abrirModal(noticia) {
   const dataFormatada = formatarData(noticia.data_publicada);
+  const relativo = tempoRelativo(noticia);
   const bandeira = BANDEIRA_PAIS[noticia.estado] ? BANDEIRA_PAIS[noticia.estado] + " " : "";
 
   document.getElementById("modal-stamp").textContent = STATUS_LABEL[noticia.status] || "Projeto";
   document.getElementById("modal-stamp").className = `modal__stamp modal__stamp--${noticia.status}`;
   document.getElementById("modal-meta").textContent =
-    `${bandeira}${noticia.empresa_nome} · ${noticia.estado || ""}${dataFormatada ? " · " + dataFormatada : ""}`;
+    `${bandeira}${noticia.empresa_nome} · ${noticia.estado || ""}${dataFormatada ? " · " + dataFormatada : ""}${relativo ? ` (${relativo})` : ""}`;
   document.getElementById("modal-titulo").textContent = noticia.titulo;
   document.getElementById("modal-resumo").textContent =
     noticia.resumo || "Resumo não disponível para esta notícia — clique abaixo para ler a matéria completa no site oficial.";
 
   const link = document.getElementById("modal-link");
   link.href = noticia.link;
+
+  const botaoCopiar = document.getElementById("modal-copiar");
+  botaoCopiar.dataset.link = noticia.link;
+  botaoCopiar.textContent = "Copiar link";
+  botaoCopiar.classList.remove("modal__copiar--sucesso");
 
   document.getElementById("modal-overlay").hidden = false;
   document.body.style.overflow = "hidden";
@@ -148,11 +194,59 @@ document.addEventListener("keydown", (evento) => {
   if (evento.key === "Escape") fecharModal();
 });
 
+document.getElementById("modal-copiar").addEventListener("click", async (evento) => {
+  const botao = evento.currentTarget;
+  const link = botao.dataset.link;
+  if (!link) return;
+
+  try {
+    await navigator.clipboard.writeText(link);
+  } catch (erro) {
+    // navegadores mais antigos / sem permissao de clipboard: metodo alternativo
+    const campoTemporario = document.createElement("textarea");
+    campoTemporario.value = link;
+    campoTemporario.style.position = "fixed";
+    campoTemporario.style.opacity = "0";
+    document.body.appendChild(campoTemporario);
+    campoTemporario.select();
+    document.execCommand("copy");
+    document.body.removeChild(campoTemporario);
+  }
+
+  botao.textContent = "Link copiado ✓";
+  botao.classList.add("modal__copiar--sucesso");
+  setTimeout(() => {
+    botao.textContent = "Copiar link";
+    botao.classList.remove("modal__copiar--sucesso");
+  }, 2000);
+});
+
 function formatarData(valor) {
   if (!valor) return "";
   const d = new Date(valor);
   if (isNaN(d.getTime())) return valor;
   return d.toLocaleDateString("pt-BR");
+}
+
+function tempoRelativo(noticia) {
+  const d = dataParaOrdenar(noticia);
+  if (!d || d.getTime() === 0) return "";
+
+  const agora = new Date();
+  const diffDias = Math.floor((agora - d) / (1000 * 60 * 60 * 24));
+
+  if (diffDias < 0) return "";
+  if (diffDias === 0) return "hoje";
+  if (diffDias === 1) return "há 1 dia";
+  if (diffDias < 30) return `há ${diffDias} dias`;
+
+  const diffMeses = Math.floor(diffDias / 30);
+  if (diffMeses === 1) return "há 1 mês";
+  if (diffMeses < 12) return `há ${diffMeses} meses`;
+
+  const diffAnos = Math.floor(diffMeses / 12);
+  if (diffAnos === 1) return "há 1 ano";
+  return `há ${diffAnos} anos`;
 }
 
 function escapeHtml(texto) {
