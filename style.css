@@ -1,9 +1,11 @@
-/* ===== TOKENS ===== */
+/* ===== TOKENS =====
+   Paleta baseada no Manual de Identidade Visual da Águas de Joinville:
+   Pantone Process Cyan (R0 G147 B221) e Pantone 293 C (R0 G81 B151) */
 :root {
-  --blue-dark: #003C6D;
-  --blue: #0568B0;
-  --blue-light: #E8F2FB;
-  --blue-lighter: #F4F9FE;
+  --blue-dark: #005197;   /* Pantone 293 C */
+  --blue: #0093DD;        /* Pantone Process Cyan */
+  --blue-light: #E5F4FC;
+  --blue-lighter: #F3FAFD;
   --ink: #1D2B36;
   --ink-soft: #5B6B77;
   --line: #DCE6EE;
@@ -13,8 +15,8 @@
   --amber: #C97A0E;
   --amber-bg: #FCF1E1;
 
-  --font-heading: "Nunito", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Noto Sans", "Arial", sans-serif;
+  --font-body: "Noto Sans", "Arial", sans-serif;
 
   --radius: 12px;
   --shadow: 0 2px 10px rgba(9, 45, 78, 0.07);
@@ -65,7 +67,7 @@ body {
 
 .title-block__mark {
   color: var(--white);
-  background: var(--blue);
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
   border-radius: 10px;
   width: 42px;
   height: 42px;
@@ -81,6 +83,20 @@ body {
   letter-spacing: 0.02em;
   color: var(--blue);
   margin: 0 0 2px;
+}
+
+.title-block__caj-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  background: var(--blue-light);
+  border: 1px solid var(--blue-light);
+  padding: 5px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .title-block__title {
@@ -381,6 +397,10 @@ body {
   padding: 22px clamp(16px, 4vw, 48px);
   text-align: center;
 }
+
+.footer p { margin: 0 0 6px; }
+.footer p:last-child { margin-bottom: 0; }
+.footer__credito { color: #D9EAF9; font-weight: 600; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 760px) {
