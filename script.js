@@ -271,18 +271,34 @@ function desenharDiagramaDeRede() {
   const ns = "http://www.w3.org/2000/svg";
 
   const nos = [
-    { x: 40, y: 60, label: "ETA" },
-    { x: 180, y: 30, label: "SAB" },
-    { x: 320, y: 70, label: "AEG" },
-    { x: 460, y: 40, label: "BRK" },
-    { x: 120, y: 180, label: "COP" },
-    { x: 280, y: 220, label: "SAN" },
-    { x: 420, y: 190, label: "ETE" },
-    { x: 60, y: 270, label: "CAG" },
+    { x: 359.1, y: 191.7, label: "SAB", nome: "Sabesp" },
+    { x: 267.1, y: 208.9, label: "COP", nome: "Copasa" },
+    { x: 322.6, y: 138.4, label: "CED", nome: "Cedae" },
+    { x: 383.5, y: 241.0, label: "SPR", nome: "Sanepar" },
+    { x: 199.3, y: 175.6, label: "CSB", nome: "Caesb" },
+    { x: 434.6, y: 155.4, label: "COR", nome: "Corsan" },
+    { x: 284.6, y: 256.3, label: "CPE", nome: "Compesa" },
+    { x: 250.0, y: 123.3, label: "CAG", nome: "Cagece" },
+    { x: 456.4, y: 216.5, label: "EMB", nome: "Embasa" },
+    { x: 141.8, y: 216.8, label: "AEG", nome: "Aegea Saneamento" },
+    { x: 375.6, y: 103.2, label: "BRK", nome: "BRK Ambiental" },
+    { x: 362.1, y: 285.8, label: "CAJ", nome: "Águas de Joinville" },
+    { x: 152.8, y: 137.3, label: "PUB", nome: "PUB — Singapura" },
+    { x: 490.4, y: 163.9, label: "MEK", nome: "Mekorot — Israel" },
+    { x: 198.6, y: 281.3, label: "EPA", nome: "EPA — EUA" },
+    { x: 275.2, y: 73.6, label: "SAT", nome: "Saneatins (BRK)" },
+    { x: 480.7, y: 261.5, label: "DES", nome: "Deso" },
+    { x: 100.9, y: 190.3, label: "SAS", nome: "Sanasa Campinas" },
+    { x: 488.0, y: 106.8, label: "IGU", nome: "Iguá Saneamento" },
+    { x: 302.3, y: 317.8, label: "ADB", nome: "Águas do Brasil" },
+    { x: 161.1, y: 89.2, label: "AMB", nome: "Ambiental (Grupo Equatorial)" },
   ];
 
   const conexoes = [
-    [0, 1], [1, 2], [2, 3], [1, 4], [4, 5], [5, 6], [4, 7], [2, 6], [0, 4],
+    [0, 1], [0, 2], [0, 3], [0, 5], [1, 2], [1, 4], [1, 6], [2, 7], [2, 10], [2, 15],
+    [3, 8], [3, 11], [4, 7], [4, 9], [4, 12], [5, 8], [5, 10], [5, 13], [5, 18], [6, 11],
+    [6, 14], [6, 19], [7, 12], [7, 15], [7, 20], [8, 13], [8, 16], [9, 14], [9, 17],
+    [11, 19], [12, 17], [12, 20], [13, 16], [13, 18],
   ];
 
   conexoes.forEach(([a, b], i) => {
@@ -309,17 +325,22 @@ function desenharDiagramaDeRede() {
 
   nos.forEach((no) => {
     const g = document.createElementNS(ns, "g");
-    g.setAttribute("class", "node");
+    g.setAttribute("class", no.label === "CAJ" ? "node node--destaque" : "node");
+
+    // nome completo ao passar o mouse
+    const titulo = document.createElementNS(ns, "title");
+    titulo.textContent = no.nome;
+    g.appendChild(titulo);
 
     const circle = document.createElementNS(ns, "circle");
     circle.setAttribute("cx", no.x);
     circle.setAttribute("cy", no.y);
-    circle.setAttribute("r", 18);
+    circle.setAttribute("r", no.label === "CAJ" ? 16 : 13);
     g.appendChild(circle);
 
     const text = document.createElementNS(ns, "text");
     text.setAttribute("x", no.x);
-    text.setAttribute("y", no.y + 4);
+    text.setAttribute("y", no.y + 3);
     text.textContent = no.label;
     g.appendChild(text);
 
