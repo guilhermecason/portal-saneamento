@@ -6,7 +6,7 @@ Portal de notícias que reúne, automaticamente, projetos novos, em teste ou já
 
 - **Site** (`index.html`, `style.css`, `script.js`) — mostra as notícias em cards, com filtro por status (em teste / em operação) e por empresa.
 - **Robô coletor** (`scraper/coletar_noticias.py`) — busca notícias das empresas configuradas, filtra só o que parece ser sobre projetos, e salva em `data/noticias.json`.
-- **Automação mensal** (`.github/workflows/coletar-mensal.yml`) — roda o robô todo dia 1º de cada mês, às 8h (horário de Brasília) sozinho, sem você precisar fazer nada, uma vez publicado no GitHub.
+- **Automação semanal** (`.github/workflows/coletar-semanal.yml`) — roda o robô toda segunda-feira, às 8h (horário de Brasília) sozinho, sem você precisar fazer nada, uma vez publicado no GitHub.
 - **Dados de exemplo** já estão em `data/noticias.json` para você ver o site funcionando antes mesmo do robô rodar de verdade.
 
 ---
@@ -35,15 +35,15 @@ Depois abra `http://localhost:8000` no navegador.
 
 ---
 
-## 3. Ativar a coleta automática mensal
+## 3. Ativar a coleta automática semanal
 
-Isso já está configurado no arquivo `.github/workflows/coletar-mensal.yml`. Você só precisa:
+Isso já está configurado no arquivo `.github/workflows/coletar-semanal.yml`. Você só precisa:
 
 1. Ter subido o projeto pro GitHub (passo 2 acima).
 2. Ir na aba **Settings → Actions → General** do repositório e garantir que "Workflow permissions" está como **Read and write permissions** (precisa disso pra o robô conseguir salvar as notícias novas sozinho).
-3. Pronto — todo mês o robô roda sozinho e atualiza `data/noticias.json`, e o site (que lê esse arquivo) mostra as notícias novas automaticamente.
+3. Pronto — toda segunda-feira o robô roda sozinho e atualiza `data/noticias.json`, e o site (que lê esse arquivo) mostra as notícias novas automaticamente.
 
-Quer testar sem esperar o próximo mês? Vá na aba **Actions** do repositório, clique no workflow "Coletar noticias mensalmente" e depois em **Run workflow**.
+Quer testar sem esperar a próxima segunda? Vá na aba **Actions** do repositório, clique no workflow "Coletar noticias semanalmente" e depois em **Run workflow**.
 
 ---
 
@@ -107,5 +107,5 @@ portal-saneamento/
 │   ├── config.json          → lista de empresas e palavras-chave
 │   └── requirements.txt     → dependências Python
 └── .github/workflows/
-    └── coletar-mensal.yml  → agenda a coleta automática
+    └── coletar-semanal.yml  → agenda a coleta automática
 ```
