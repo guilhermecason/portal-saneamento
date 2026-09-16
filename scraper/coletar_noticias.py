@@ -17,14 +17,15 @@ COMO RODAR MANUALMENTE:
   pip install -r requirements.txt
   python coletar_noticias.py
 
-COMO RODAR AUTOMATICO TODA MES:
-  Ja esta configurado em .github/workflows/coletar-mensal.yml
+COMO RODAR AUTOMATICO TODA SEMANA:
+  Ja esta configurado em .github/workflows/coletar-semanal.yml
   Ver instrucoes no README.md
 """
 
 import json
 import hashlib
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
@@ -195,8 +196,18 @@ def coletar_via_rss(empresa):
     for entrada in feed.entries[:20]:
         titulo = entrada.get("title", "").strip()
         resumo = re.sub("<[^<]+?>", "", entrada.get("summary", "")).strip()
+        resumo = re.sub(r"\s+", " ", resumo)[:280]
         link = entrada.get("link", "")
         data_pub = entrada.get("published", "") or entrada.get("updated", "")
+
+        # se o RSS nao veio com resumo, busca na propria pagina da noticia
+        # (mesma tecnica usada no caminho sem RSS), pra nunca deixar o
+        # card sem nenhum texto de apoio pro titulo
+        if not resumo and link:
+            _, resumo_pagina = link_existe_e_resumo(link)
+            resumo = resumo_pagina
+            time.sleep(0.4)
+
         noticias.append(
             {
                 "titulo": titulo,
@@ -263,6 +274,7 @@ def coletar_via_html(empresa):
         if existe:
             c["resumo"] = resumo
             validos.append(c)
+        time.sleep(0.4)  # pausa curta pra nao sobrecarregar o site da empresa
 
     return validos[:30]
 
@@ -330,6 +342,7 @@ def main():
             novas_total.append(n)
             ids_existentes.add(n["id"])
             titulos_existentes.add(titulo_norm)
+        time.sleep(1)  # pausa entre empresas, educado com os servidores delas
 
     resultado = novas_total + existentes
     # mais recentes primeiro (quando tem data), limitando o arquivo a 300 itens
