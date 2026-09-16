@@ -139,7 +139,7 @@ function criarCard(noticia) {
     <span class="card__stamp card__stamp--${noticia.status}">${STATUS_LABEL[noticia.status] || "Projeto"}</span>
     <p class="card__meta">${bandeira}${escapeHtml(noticia.empresa_nome)} · ${escapeHtml(noticia.estado || "")}${dataFormatada ? " · " + dataFormatada : ""}${relativo ? ` <span class="card__relativo">(${relativo})</span>` : ""}</p>
     <h4 class="card__title">${escapeHtml(noticia.titulo)}</h4>
-    ${noticia.resumo ? `<p class="card__resumo">${escapeHtml(noticia.resumo)}</p>` : ""}
+    <p class="card__resumo">${escapeHtml(noticia.resumo || "Resumo não disponível — clique para ler a matéria completa no site oficial.")}</p>
     <span class="card__link">Ver notícia completa →</span>
   `;
 
