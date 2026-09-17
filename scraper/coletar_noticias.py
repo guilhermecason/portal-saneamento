@@ -47,6 +47,78 @@ HEADERS = {
 
 TIMEOUT = 15
 
+# Navegador headless (Playwright), usado so como plano B quando o pedido
+# HTTP simples nao acha nenhum resumo — acontece em sites que montam o
+# conteudo via JavaScript (SPA/React/Next.js), onde o HTML puro chega
+# quase vazio. Abre so na primeira vez que for preciso, fica aberto e
+# reaproveitado pro resto da execucao, e fecha no final.
+_browser_playwright = None
+_browser = None
+
+
+def _obter_browser():
+    global _browser_playwright, _browser
+    if _browser is None:
+        from playwright.sync_api import sync_playwright
+
+        _browser_playwright = sync_playwright().start()
+        _browser = _browser_playwright.chromium.launch(headless=True)
+    return _browser
+
+
+def _fechar_browser():
+    global _browser_playwright, _browser
+    if _browser is not None:
+        try:
+            _browser.close()
+            _browser_playwright.stop()
+        except Exception:
+            pass
+        _browser = None
+        _browser_playwright = None
+
+
+def resumo_via_navegador(url):
+    """
+    Abre a pagina num navegador headless de verdade (Chromium sem tela),
+    espera o JavaScript rodar e o conteudo carregar, e so entao tenta
+    puxar a meta description ou o primeiro paragrafo relevante — a
+    versao "cara" do link_existe_e_resumo(), usada so quando a simples
+    (requests + BeautifulSoup) nao encontrou nada.
+    """
+    try:
+        browser = _obter_browser()
+        page = browser.new_page(user_agent=HEADERS["User-Agent"])
+        try:
+            page.goto(url, timeout=20000, wait_until="networkidle")
+        except Exception:
+            pass  # segue mesmo sem "networkidle" disparar, tenta ler o que ja carregou
+
+        resumo = ""
+        try:
+            meta = page.locator('meta[property="og:description"]').first
+            if meta.count() > 0:
+                texto = re.sub(r"\s+", " ", (meta.get_attribute("content") or "").strip())
+                if len(texto) > 15:
+                    resumo = texto[:280]
+        except Exception:
+            pass
+
+        if not resumo:
+            try:
+                for texto in page.locator("p").all_text_contents():
+                    texto = re.sub(r"\s+", " ", texto).strip()
+                    if len(texto) > 60:
+                        resumo = texto[:280]
+                        break
+            except Exception:
+                pass
+
+        page.close()
+        return resumo
+    except Exception:
+        return ""
+
 # Textos de link que quase sempre sao menu/rodape/navegacao, nao noticia.
 # Se o texto do link for exatamente (ou quase) um desses, e descartado.
 TEXTOS_IGNORADOS = {
@@ -175,6 +247,12 @@ def link_existe_e_resumo(url):
                         break
         except Exception:
             pass  # se der erro so no resumo, ainda assim o link e valido
+
+        # plano B: se nao achou nada no HTML puro, a pagina pode ser um
+        # site em JavaScript (SPA) que so carrega o conteudo no navegador.
+        # Abre com o Chromium headless e tenta de novo.
+        if not resumo:
+            resumo = resumo_via_navegador(url)
 
         return True, resumo
     except Exception:
@@ -331,18 +409,21 @@ def main():
     titulos_existentes = {normalizar_titulo(n["titulo"]) for n in existentes}
 
     novas_total = []
-    for empresa in config["empresas"]:
-        novas = coletar_empresa(
-            empresa, config["palavras_chave_projeto"], config["palavras_chave_excluir"]
-        )
-        for n in novas:
-            titulo_norm = normalizar_titulo(n["titulo"])
-            if n["id"] in ids_existentes or titulo_norm in titulos_existentes:
-                continue
-            novas_total.append(n)
-            ids_existentes.add(n["id"])
-            titulos_existentes.add(titulo_norm)
-        time.sleep(1)  # pausa entre empresas, educado com os servidores delas
+    try:
+        for empresa in config["empresas"]:
+            novas = coletar_empresa(
+                empresa, config["palavras_chave_projeto"], config["palavras_chave_excluir"]
+            )
+            for n in novas:
+                titulo_norm = normalizar_titulo(n["titulo"])
+                if n["id"] in ids_existentes or titulo_norm in titulos_existentes:
+                    continue
+                novas_total.append(n)
+                ids_existentes.add(n["id"])
+                titulos_existentes.add(titulo_norm)
+            time.sleep(1)  # pausa entre empresas, educado com os servidores delas
+    finally:
+        _fechar_browser()
 
     resultado = novas_total + existentes
     # mais recentes primeiro (quando tem data), limitando o arquivo a 300 itens
