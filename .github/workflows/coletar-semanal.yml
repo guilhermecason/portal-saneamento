@@ -1,8 +1,10 @@
 name: Coletar noticias semanalmente
 
 on:
+  # Roda toda segunda-feira as 08:00 (horario de Brasilia = 11:00 UTC)
   schedule:
     - cron: "0 11 * * 1"
+  # Tambem permite rodar manualmente pela aba "Actions" no GitHub
   workflow_dispatch: {}
 
 permissions:
@@ -14,14 +16,21 @@ jobs:
     steps:
       - name: Baixar o codigo do repositorio
         uses: actions/checkout@v4
+
       - name: Preparar Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+
       - name: Instalar dependencias
         run: pip install -r scraper/requirements.txt
+
+      - name: Instalar o navegador headless (Chromium)
+        run: playwright install --with-deps chromium
+
       - name: Rodar o robo coletor
         run: python scraper/coletar_noticias.py
+
       - name: Salvar as noticias novas no repositorio
         run: |
           git config user.name "Robo Coletor"
