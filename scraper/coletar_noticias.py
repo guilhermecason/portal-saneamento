@@ -27,6 +27,7 @@ import hashlib
 import re
 import time
 from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from pathlib import Path
 from urllib.parse import urljoin, urlparse
 
@@ -107,9 +108,9 @@ def resumo_via_navegador(url):
         if not resumo:
             try:
                 for texto in page.locator("p").all_text_contents():
-                    texto = re.sub(r"\s+", " ", texto).strip()
-                    if len(texto) > 60:
-                        resumo = texto[:280]
+                    candidato = limpar_resumo(texto)
+                    if candidato and len(candidato) > 60:
+                        resumo = candidato
                         break
             except Exception:
                 pass
@@ -171,6 +172,69 @@ def normalizar_titulo(titulo):
     t = re.sub(r"\s+", " ", t)
     t = re.sub(r"[^\w\s]", "", t)
     return t
+
+
+_TAG_HTML_RE = re.compile(r"<[^>]{1,200}>")
+_SOBRA_DE_CODIGO_RE = re.compile(
+    r"(loading=|\bsrc=|\bhref=|width=\"?\d|height=\"?\d|icon-drop-down|onetap)", re.I
+)
+
+
+def limpar_resumo(texto):
+    """
+    Rede de seguranca final pro resumo. Alguns sites tem bug no proprio
+    campo de descricao (ex: um widget de troca de idioma que vaza o
+    HTML dele junto do texto, em vez de so o texto). Aqui a gente
+    verifica sinais de HTML vazado no texto ORIGINAL (antes de tirar as
+    tags, senao perde o rastro) e descarta o resumo inteiro se parecer
+    codigo em vez de frase de verdade — melhor nao mostrar nada do que
+    mostrar lixo tipo "Português (Brasil)".
+    """
+    if not texto:
+        return ""
+    if _SOBRA_DE_CODIGO_RE.search(texto):
+        return ""
+    limpo = _TAG_HTML_RE.sub(" ", texto)
+    limpo = re.sub(r"\s+", " ", limpo).strip()
+    if len(limpo) < 15:
+        return ""
+    return limpo[:280]
+
+
+_LIMIAR_SEMELHANCA = 0.40
+
+
+def _conjunto_de_palavras(texto):
+    texto = texto.lower()
+    texto = re.sub(r"[^a-zà-ÿ0-9\s]", " ", texto)
+    return set(texto.split())
+
+
+def eh_quase_duplicada(resumo, titulo, empresa_id, vistos_por_empresa):
+    """
+    Algumas empresas publicam o MESMO texto-modelo repetido pra varias
+    cidades onde atuam, so trocando o nome da cidade e reescrevendo um
+    pouco a frase (ex: BRK publicando "Dia da Arvore" separadamente pra
+    10 municipios). Como a frase muda de ordem/palavras, comparar
+    caractere-a-caractere nao pega o parecido — por isso aqui a gente
+    compara pelo CONJUNTO de palavras em comum (semelhanca de Jaccard),
+    que e robusto a reescrita e reordenacao. Acima do limiar, considera
+    duplicada e mantem so a primeira ocorrencia da MESMA empresa nesta
+    coleta.
+    """
+    base = f"{titulo} {resumo}"
+    palavras = _conjunto_de_palavras(base)
+    if len(palavras) < 8:
+        return False  # texto curto demais pra comparar com confianca
+
+    anteriores = vistos_por_empresa.setdefault(empresa_id, [])
+    for anterior in anteriores:
+        intersecao = len(palavras & anterior)
+        uniao = len(palavras | anterior)
+        if uniao and (intersecao / uniao) >= _LIMIAR_SEMELHANCA:
+            return True
+    anteriores.append(palavras)
+    return False
 
 
 def parece_projeto(texto, palavras_chave, palavras_excluir):
@@ -238,12 +302,13 @@ def link_existe_e_resumo(url):
                         break
 
             # se nao achou meta description, tenta o primeiro paragrafo
-            # razoavelmente longo do corpo da pagina
+            # razoavelmente longo do corpo da pagina (pulando qualquer um
+            # que pareca ter HTML vazado, tipo widget de idioma)
             if not resumo:
                 for p in soup.find_all("p"):
-                    texto = p.get_text(strip=True)
-                    if len(texto) > 60:
-                        resumo = re.sub(r"\s+", " ", texto)[:280]
+                    candidato = limpar_resumo(p.get_text(" ", strip=True))
+                    if candidato and len(candidato) > 60:
+                        resumo = candidato
                         break
         except Exception:
             pass  # se der erro so no resumo, ainda assim o link e valido
@@ -357,7 +422,7 @@ def coletar_via_html(empresa):
     return validos[:30]
 
 
-def coletar_empresa(empresa, palavras_chave, palavras_excluir):
+def coletar_empresa(empresa, palavras_chave, palavras_excluir, vistos_por_empresa):
     print(f"-> Coletando: {empresa['nome']}")
     brutas = []
 
@@ -372,9 +437,11 @@ def coletar_empresa(empresa, palavras_chave, palavras_excluir):
 
     filtradas = []
     titulos_normalizados_nesta_rodada = set()
+    quase_duplicadas = 0
 
     for n in brutas:
-        texto_para_filtro = f"{n['titulo']} {n['resumo']}"
+        resumo_limpo = limpar_resumo(n["resumo"])
+        texto_para_filtro = f"{n['titulo']} {resumo_limpo}"
         if not parece_projeto(texto_para_filtro, palavras_chave, palavras_excluir):
             continue
 
@@ -383,6 +450,10 @@ def coletar_empresa(empresa, palavras_chave, palavras_excluir):
             continue  # duplicado dentro da mesma coleta
         titulos_normalizados_nesta_rodada.add(titulo_norm)
 
+        if eh_quase_duplicada(resumo_limpo, n["titulo"], empresa["id"], vistos_por_empresa):
+            quase_duplicadas += 1
+            continue  # mesmo texto-modelo publicado de novo so trocando a cidade
+
         filtradas.append(
             {
                 "id": gerar_id(n["link"], n["titulo"]),
@@ -390,7 +461,7 @@ def coletar_empresa(empresa, palavras_chave, palavras_excluir):
                 "empresa_nome": empresa["nome"],
                 "estado": empresa["estado"],
                 "titulo": n["titulo"],
-                "resumo": n["resumo"],
+                "resumo": resumo_limpo,
                 "link": n["link"],
                 "data_publicada": n["data_publicada"],
                 "status": classificar_status(texto_para_filtro),
@@ -398,8 +469,11 @@ def coletar_empresa(empresa, palavras_chave, palavras_excluir):
             }
         )
 
+    if quase_duplicadas:
+        print(f"   {quase_duplicadas} noticia(s) ignorada(s) por serem quase-duplicadas (mesmo texto-modelo)")
     print(f"   {len(filtradas)} noticia(s) relevante(s) e validada(s) encontradas")
     return filtradas
+
 
 
 def main():
@@ -409,10 +483,14 @@ def main():
     titulos_existentes = {normalizar_titulo(n["titulo"]) for n in existentes}
 
     novas_total = []
+    vistos_por_empresa = {}
     try:
         for empresa in config["empresas"]:
             novas = coletar_empresa(
-                empresa, config["palavras_chave_projeto"], config["palavras_chave_excluir"]
+                empresa,
+                config["palavras_chave_projeto"],
+                config["palavras_chave_excluir"],
+                vistos_por_empresa,
             )
             for n in novas:
                 titulo_norm = normalizar_titulo(n["titulo"])
