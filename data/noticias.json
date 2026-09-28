@@ -1,5 +1,65 @@
 [
   {
+    "id": "45977a11938c3caa",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "ESGOTAMENTO SANITÁRIO: BRK acelera recomposição e recupera mais de 91% das vias impactadas pelas obras em Caçador",
+    "resumo": "A BRK intensificou nas últimas semanas os trabalhos de recomposição das vias impactadas pelas obras de implantação das redes de esgotamento sanitário em Caçador. Aproveitando o período de redução das chuvas, a concessionária recuperou mais de quatro quilômetros de ruas em apenas",
+    "link": "https://www.brkambiental.com.br/cacador/esgotamento-sanitario-brk-acelera-recomposicao-e-recupera-mais-de-91-das-vias-impactadas-pelas-obras-em-cacador",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-28T11:16:40.297360+00:00"
+  },
+  {
+    "id": "4213d36f2e6bb1a2",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Estudantes aprendem sobre saneamento e se tornam multiplicadores de boas práticas com o Programa Cuidar Mais",
+    "resumo": "A BRK iniciou mais uma edição do Programa Cuidar Mais, em conjunto com a secretaria municipal de educação de Cachoeiro de Itapemirim. A iniciativa está sendo desenvolvida em escolas do município, levando aos estudantes conhecimentos sobre saneamento básico, saúde, higiene, uso co",
+    "link": "https://www.brkambiental.com.br/cachoeiro-de-itapemirim/estudantes-aprendem-sobre-saneamento-e-se-tornam-multiplicadores-de-boas-praticas-com-o-programa-cuidar-mais",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-28T11:16:40.297579+00:00"
+  },
+  {
+    "id": "9876b79253522370",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK realiza nova etapa de obra emergencial na rua Cabo Reis",
+    "resumo": "A BRK deu início, nesta semana, a mais uma etapa da obra de esgotamento sanitário na rua Cabo Reis, no bairro Ponta Grossa. Nesta fase, será realizada a substituição emergencial de cerca de 32 metros da rede coletora de esgoto, que possui 600 mm de diâmetro e está localizada a ap",
+    "link": "https://www.brkambiental.com.br/alagoas/atalaia/brk-realiza-nova-etapa-de-obra-emergencial-na-rua-cabo-reis",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-28T11:16:40.297657+00:00"
+  },
+  {
+    "id": "f1fb986f7f5063e4",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK Informa - 25 de setembro de 2026",
+    "resumo": "Registros em Barra de São Miguel são fechados devido à manutenção da rede de água",
+    "link": "https://www.brkambiental.com.br/alagoas/atalaia/brk-informa-25-de-setembro-de-2026",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-28T11:16:40.297697+00:00"
+  },
+  {
+    "id": "9e243273c2781d84",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Recursos homologados pela AGERGS são destinados à ampliação do Programa Conexão Social em Uruguaiana",
+    "resumo": "Em sessão realizada nesta terça-feira (22), a Agência Estadual de Regulação dos Serviços Públicos Delegados do Rio Grande do Sul (AGERGS) homologou o valor de R$ 291.621,34 para ações voltadas à conexão de famílias da categoria Residencial Social à rede pública de esgoto.",
+    "link": "https://www.brkambiental.com.br/uruguaiana/recursos-homologados-pela-agergs-sao-destinados-a-ampliacao-do-programa-conexao-social-em-uruguaiana",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-09-28T11:16:40.297789+00:00"
+  },
+  {
     "id": "13f21b0f6f66fd75",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
