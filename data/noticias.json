@@ -1,5 +1,65 @@
 [
   {
+    "id": "39a651fdfe4dd307",
+    "empresa_id": "sabesp",
+    "empresa_nome": "Sabesp",
+    "estado": "SP",
+    "titulo": "Sistema de Coleta e Tratamento",
+    "resumo": "Sabesp â Companhia de Saneamento BÃ¡sico do Estado de SÃ£o Paulo. Ãgua, esgoto e serviÃ§os para mais de 28 milhÃµes de clientes.",
+    "link": "https://www.sabesp.com.br/a-sabesp/central-noticias/o-que-fazemos/solucoes-para-esgotos/sistema-coleta-tratamento",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-05T19:31:01.836792+00:00"
+  },
+  {
+    "id": "46a7210de0dd7f42",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Conta da Cedae ganha novo modelo a partir de 6 de outubro",
+    "resumo": "Formato segue as regras da Reforma Tributária, sem alteração no valor cobrado pela água",
+    "link": "https://www.cedae.com.br/noticias/detalhe/conta-da-cedae-ganha-novo-modelo-a-partir-de-6-de-outubro/id/1000",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-05T19:32:02.251102+00:00"
+  },
+  {
+    "id": "e0bfea60e3dc172e",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Tocantins completa 38 anos com indicadores de saneamento acima da média nacional",
+    "resumo": "A BRK | SANEATINS celebra, em 5 de outubro, o aniversário de 38 anos do Tocantins, data especial para os quase 1,6 milhão de habitantes do estado, conforme estimativa do Instituto Brasileiro de Geografia e Estatística (IBGE). Presente em 46 municípios tocantinenses, a concessioná",
+    "link": "https://www.brkambiental.com.br/tocantins/aguiarnopolis/tocantins-completa-38-anos-com-indicadores-de-saneamento-acima-da-media-nacional",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-05T19:35:58.072432+00:00"
+  },
+  {
+    "id": "b681ecf2c4ea0d84",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK abre inscrições para Programa de Estágio 2027 com 40 vagas em 12 cidades brasileiras",
+    "resumo": "A BRK, uma das maiores empresas privadas de saneamento básico do Brasil, está com inscrições abertas para o Programa de Estágio 2027. São 40 vagas distribuídas em 12 cidades de sete estados: Limeira, Mauá e São Paulo (SP), Maceió (AL), Cachoeiro de Itapemirim (ES), Recife (PE), U",
+    "link": "https://www.brkambiental.com.br/maua/brk-abre-inscricoes-para-programa-de-estagio-2027-com-40-vagas-em-12-cidades-brasileiras",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-05T19:35:58.072807+00:00"
+  },
+  {
+    "id": "355e883b47db7c49",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Oficina de Grafite transforma reservatório de água da BRK em mural de conscientização ambiental",
+    "resumo": "A BRK, concessionária responsável pelos serviços de água e esgoto em Porto Ferreira, promoveu, no último dia 25 de setembro, uma Oficina de Grafite que transformou visualmente o reservatório de água tratada da Estação de Tratamento “Oswaldo da Cunha Leme” (ETA OCL). A iniciativa",
+    "link": "https://www.brkambiental.com.br/porto-ferreira/oficina-de-grafite-transforma-reservatorio-de-agua-da-brk-em-mural-de-conscientizacao-ambiental",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-05T19:35:58.072998+00:00"
+  },
+  {
     "id": "45977a11938c3caa",
     "empresa_id": "brk",
     "empresa_nome": "BRK Ambiental",
