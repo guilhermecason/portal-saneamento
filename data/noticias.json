@@ -1,5 +1,77 @@
 [
   {
+    "id": "f8749b134e66e2cf",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Falha elétrica afeta abastecimento de água em Laje do Muriaé",
+    "resumo": "Devido a falha interna na rede elétrica, o sistema de abastecimento de água de Laje do Muriaé está com a operação interrompida desde as 2h desta quarta-feira (7/10). Técnicos da Cedae já realizam o reparo, com previsão de conclusão até as 10h de hoje.",
+    "link": "https://www.cedae.com.br/noticias/detalhe/falha-eletrica-afeta-abastecimento-de-agua-em-laje-do-muriae/id/1003",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:07:57.118706+00:00"
+  },
+  {
+    "id": "e4966782a5b6a810",
+    "empresa_id": "cagece",
+    "empresa_nome": "Cagece",
+    "estado": "CE",
+    "titulo": "Notícias05/10/2026Modernização reforça segurança do sistema de esgoto e proteção do Riacho PajeúPara reforçar a eficiência e a segurança desse sistema, a Companhia de Água e Esgoto do Ceará (Cagece), por meio da Ambiental Ceará, empresa parceira da companhia na operação do esgotamento sanitário em 24 municípios cearenses, investiu mais de R$ 4 milhões na modernização da EEE Pajeú com intervenções na estrutura, nas tubulações e nos equipamentos.Leia mais",
+    "resumo": "Para reforçar a eficiência e a segurança desse sistema, a Companhia de Água e Esgoto do Ceará (Cagece), por meio da Ambiental Ceará, empresa parceira da companhia na operação do esgotamento sanitário em 24 municípios cearenses, investiu mais de R$ 4 milhões na modernização da EEE",
+    "link": "https://www.cagece.com.br/modernizacao-reforca-seguranca-do-sistema-de-esgoto-e-protecao-do-riacho-pajeu/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:09:50.034804+00:00"
+  },
+  {
+    "id": "abeda21eb93cca35",
+    "empresa_id": "cagece",
+    "empresa_nome": "Cagece",
+    "estado": "CE",
+    "titulo": "Notícias05/10/2026Cagece reforça operação do abastecimento de PereiroEntre as ações está a aquisição de cinco grupos geradores de energia elétrica, que serão destinados à Estação de Tratamento de Água (ETA) e a quatro Estações Elevatórias de Água Bruta que integram o sistema responsável pelo atendimento do município.Leia mais",
+    "resumo": "Entre as ações está a aquisição de cinco grupos geradores de energia elétrica, que serão destinados à Estação de Tratamento de Água (ETA) e a quatro Estações Elevatórias de Água Bruta que integram o sistema responsável pelo atendimento do município.",
+    "link": "https://www.cagece.com.br/cagece-reforca-operacao-do-abastecimento-de-pereiro/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:09:50.035071+00:00"
+  },
+  {
+    "id": "36220609379f8ff7",
+    "empresa_id": "cagece",
+    "empresa_nome": "Cagece",
+    "estado": "CE",
+    "titulo": "Notícias05/10/2026Projeto da PPP do esgotamento sanitário é detalhado a gestores de 23 municípios cearensesLeia mais",
+    "resumo": "Em reunião no Palácio da Abolição, o projeto da Parceria Público-Privada (PPP) do esgotamento sanitário foi detalhado aos prefeitos, secretários e representantes dos 23 municípios contemplados pelo bloco 1 da concessão. O encontro foi realizado no dia 17 de julho. Em conformidade",
+    "link": "https://www.cagece.com.br/projeto-da-ppp-do-esgotamento-sanitario-e-detalhado-a-gestores-de-23-municipios-cearenses/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:09:50.035260+00:00"
+  },
+  {
+    "id": "43fd5f28e99c332c",
+    "empresa_id": "cagece",
+    "empresa_nome": "Cagece",
+    "estado": "CE",
+    "titulo": "Notícias02/07/2026Cagece avança em obra de novo sistema de abastecimento que beneficiará mais de 158 mil habitantes na RMFCom 95% de execução concluída e em fase de operação assistida, a obra representa um importante reforço para a segurança hídrica da região, beneficiando inicialmente cerca de 159 mil habitantes.Leia mais",
+    "resumo": "Com 95% de execução concluída e em fase de operação assistida, a obra representa um importante reforço para a segurança hídrica da região, beneficiando inicialmente cerca de 159 mil habitantes.",
+    "link": "https://www.cagece.com.br/cagece-avanca-em-obra-de-novo-sistema-de-abastecimento-que-beneficiara-mais-de-158-mil-habitantes-na-rmf/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:09:50.035382+00:00"
+  },
+  {
+    "id": "e4e6f24451ff9981",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Feriado de 12 de outubro | Loja da BRK não abre na segunda-feira, mas atendimento digital será mantido",
+    "resumo": "A BRK, concessionária responsável pelos serviços de esgotamento sanitário em Mauá, informa que a loja de atendimento ao público, localizada no Poupatempo da cidade, na avenida Antônia Rosa Fioravanti, 1654, no bairro Jardim Cerqueira Leite, não funcionará na segunda-feira, dia 12",
+    "link": "https://www.brkambiental.com.br/maua/feriado-de-12-de-outubro-loja-da-brk-nao-abre-na-segunda-feira-mas-atendimento-digital-sera-mantido",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-12T20:11:59.209614+00:00"
+  },
+  {
     "id": "39a651fdfe4dd307",
     "empresa_id": "sabesp",
     "empresa_nome": "Sabesp",
