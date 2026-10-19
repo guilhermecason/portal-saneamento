@@ -1,5 +1,53 @@
 [
   {
+    "id": "bf64ce2020c669f1",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae instala macromedidor na ETA Vargem Alegre nesta sexta-feira (16/10)",
+    "resumo": "A Cedae vai realizar a instalação de macromedidor na Estação de Tratamento de Água (ETA) de Vargem Alegre, em Barra do Piraí, das 12h às 17h desta sexta-feira (16/10). Durante o período, a operação da unidade será interrompida, afetando o abastecimento de água para o distrito.",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-instala-macromedidor-na-eta-vargem-alegre-nesta-sexta-feira-1610/id/1011",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-19T17:21:20.006064+00:00"
+  },
+  {
+    "id": "c5c9bab3e8ea00bb",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae inicia construção de elevatória em Barra do Piraí",
+    "resumo": "A Cedae deu início a obras de melhoria no sistema de abastecimento de água de Barra do Piraí. A principal intervenção é a construção da estação elevatória Duas Estações, estrutura responsável por bombear a água. A unidade vai reforçar a produção e a distribuição de água, benefici",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-inicia-construcao-de-elevatoria-em-barra-do-pirai/id/1009",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-19T17:21:20.006208+00:00"
+  },
+  {
+    "id": "4e8053f82b769f39",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "COMPESA REALIZA INTERVENÇÃO NO SISTEMA GURJAÚ NO SÁBADO (17)",
+    "resumo": "A Compesa informa que, no próximo sábado (17), a partir das 05h, realizará uma intervenção de alta complexidade no Sistema Gurjaú. A ação consiste na implantação de um desvio em adutora de grande porte, que viabilizará, o avanço das obras do Novo Viaduto da Vitarella, em execução",
+    "link": "https://servicos.compesa.com.br/compesa-realiza-intervencao-no-sistema-gurjau-no-sabado-17/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-19T17:23:14.453392+00:00"
+  },
+  {
+    "id": "0e848fa97cb3a35e",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "ÁGUA NO ALTO JOSÉ BONIFÁCIO COM NOVO SISTEMA DE POÇOS",
+    "resumo": "Moradores do Alto José Bonifácio, na Zona Norte do Recife, passaram a contar com abastecimento diário de água após a conclusão das obras que viabilizaram a operação de um conjunto de quatro poços na localidade. Inaugurada pela governadora Raquel Lyra na terça-feira (13), a inicia",
+    "link": "https://servicos.compesa.com.br/agua-no-alto-jose-bonifacio-com-novo-sistema-de-pocos/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-19T17:23:14.453505+00:00"
+  },
+  {
     "id": "f8749b134e66e2cf",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
