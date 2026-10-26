@@ -1,5 +1,77 @@
 [
   {
+    "id": "358fa3219455636a",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae vence premiação internacional de sustentabilidade",
+    "resumo": "A Cedae venceu o Premios Verdes, iniciativa internacional que reconhece projetos de impacto socioambiental na América Latina e no Caribe. O programa Replantando Vida, que alia restauração florestal à ressocialização de pessoas em cumprimento de pena, conquistou o primeiro lugar n",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-vence-premiacao-internacional-de-sustentabilidade/id/1019",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:09:03.399141+00:00"
+  },
+  {
+    "id": "428723b18fa60a56",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "COMPESA ADOTA TECNOLOGIA INOVADORA PARA COMBATER PERDAS DE ÁGUA EM GRANDES ADUTORAS",
+    "resumo": "Combater a perda de água é um dos maiores desafios das companhias de saneamento do país. Em Pernambuco, estado com menor disponibilidade hídrica per capita do país, essa pauta se torna ainda mais relevante. A companhia dá agora um passo importante nesse objetivo com o auxílio da",
+    "link": "https://servicos.compesa.com.br/compesa-adota-tecnologia-inovadora-para-combater-perdas-de-agua-em-grandes-adutoras/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:10:46.519321+00:00"
+  },
+  {
+    "id": "cfd6f49b30d0b0d7",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK realiza obra para substituição de redes de água no Jardim Residencial Antônio Simonetti, em Limeira",
+    "resumo": "A BRK, concessionária responsável pelos serviços de água e esgoto em Limeira, realiza a partir desta segunda-feira, dia 26 de outubro, uma nova obra para substituição de redes de água na rua Wilson de Barros Cotrin, no Jardim Residencial Antônio Simonetti. A intervenção ocorrerá",
+    "link": "https://www.brkambiental.com.br/limeira/brk-realiza-obra-para-substituicao-de-redes-de-agua-no-jardim-residencial-antonio-simonetti-em-limeira",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:12:48.266597+00:00"
+  },
+  {
+    "id": "cdeead31b9876339",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK recebe escolas na Estação de Tratamento de Esgoto, em Macaé-RJ",
+    "resumo": "Escolas de Macaé que desejam ampliar o aprendizado dos alunos sobre saneamento básico e meio ambiente têm a oportunidade de levar esse conhecimento para além da sala de aula. A BRK, concessionária responsável pelos serviços de esgotamento sanitário no município, recebe instituiçõ",
+    "link": "https://www.brkambiental.com.br/macae/brk-recebe-escolas-na-estacao-de-tratamento-de-esgoto-em-macae-rj",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:12:48.266786+00:00"
+  },
+  {
+    "id": "74024285c681ee7c",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK celebra o mês das crianças com atividades educativas sobre o tratamento de água",
+    "resumo": "No último sábado, dia 17 de outubro, a BRK, concessionária responsável pelos serviços de água e esgoto em Porto Ferreira, promoveu uma celebração especial em homenagem ao Dia das Crianças. O evento BRKids reuniu funcionários e seus familiares na Estação de Tratamento de Água (ETA",
+    "link": "https://www.brkambiental.com.br/porto-ferreira/brk-celebra-o-mes-das-criancas-com-atividades-educativas-sobre-o-tratamento-de-agua",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:12:48.266886+00:00"
+  },
+  {
+    "id": "c5dc9635d6664888",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK Informa - 22 de outubro de 2026",
+    "resumo": "ETA Niquim, em Marechal Deodoro, está com vazão reduzida devido à recuperação de nível do reservatório",
+    "link": "https://www.brkambiental.com.br/alagoas/atalaia/brk-informa-22-de-outubro-de-2026",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-10-26T17:12:48.266922+00:00"
+  },
+  {
     "id": "bf64ce2020c669f1",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
