@@ -1,5 +1,65 @@
 [
   {
+    "id": "a40a39451f4ccc4e",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Sistema Guandu passa por manutenção anual preventiva na terça-feira (3/11)",
+    "resumo": "A Cedae realiza na próxima terça-feira (3/11), a partir das 4h da madrugada, a manutenção anual preventiva do Sistema Guandu. O serviço visa preparar a estação de tratamento de água para o verão, período de maior consumo. Até a conclusão da manutenção, prevista para as 4h de quar",
+    "link": "https://www.cedae.com.br/noticias/detalhe/sistema-guandu-passa-por-manutencao-anual-preventiva-na-terca-feira-311/id/1026",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-02T20:39:23.518606+00:00"
+  },
+  {
+    "id": "2ade68ed80df7d19",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae executa manutenção na Estação de Tratamento de Água em Italva",
+    "resumo": "A Cedae realiza, na manhã desta quarta-feira (28/10), manutenção na Estação de Tratamento de Água do município de Italva. Devido ao serviço, o abastecimento ficará interrompido na cidade, com previsão de retorno às 13h.",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-executa-manutencao-na-estacao-de-tratamento-de-agua-em-italva/id/1024",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-02T20:39:23.518759+00:00"
+  },
+  {
+    "id": "5c2f4ccb3862c986",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae inicia obra da Estação de Tratamento de Água Novo Guandu",
+    "resumo": "A Cedae inicia, esta semana, as obras de construção da Estação de Tratamento de Água (ETA) do sistema Novo Guandu, em Nova Iguaçu. Orçada em R$ 1,35 bilhão, a ETA vai produzir 7,5 mil litros de água tratada por segundo, beneficiando cerca de 3 milhões de pessoas na Baixada Flumin",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-inicia-obra-da-estacao-de-tratamento-de-agua-novo-guandu/id/1023",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-02T20:39:23.518863+00:00"
+  },
+  {
+    "id": "8cfb7e930e7977fa",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Dia Mundial das Cidades: Saneamento impulsiona qualidade de vida urbana em Paço do Lumiar e São José de Ribamar",
+    "resumo": "Neste sábado, 31 de outubro, o calendário global celebra o Dia Mundial das Cidades, data instituída pela Organização das Nações Unidas (ONU) para debater o urbanismo sustentável e a resiliência das áreas urbanas. No centro desse debate, o saneamento básico se consolida como o pri",
+    "link": "https://www.brkambiental.com.br/maranhao/paco-do-lumiar/dia-mundial-das-cidades-saneamento-impulsiona-qualidade-de-vida-urbana-em-paco-do-lumiar-e-sao-jose-de-ribamar",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-02T20:44:22.864639+00:00"
+  },
+  {
+    "id": "9163141b5798d98a",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK inicia a implantação da EEE Santa Olivia e realiza interdição parcial da rua São Timóteo a partir da próxima terça (",
+    "resumo": "A BRK inicia, na próxima terça-feira, 03 de novembro, a implantação da Estação Elevatória de Esgoto (EEE) Santa Olivia, na rua São Timóteo, em Sumaré. A intervenção faz parte das obras da Bacia Tijuco Preto.",
+    "link": "https://www.brkambiental.com.br/sumare/brk-inicia-a-implantacao-da-eee-santa-olivia-e-realiza-interdicao-parcial-da-rua-sao-timoteo-a-partir-da-proxima-terca",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-02T20:44:22.864814+00:00"
+  },
+  {
     "id": "358fa3219455636a",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
