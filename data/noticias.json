@@ -1,5 +1,29 @@
 [
   {
+    "id": "45f4430858371e26",
+    "empresa_id": "mekorot_israel",
+    "empresa_nome": "Mekorot — Companhia Nacional de Água de Israel",
+    "estado": "Israel",
+    "titulo": "Expanding the Sabha desalination plant",
+    "resumo": "At the tip of Israel’s most arid region, the city of Eilat has become a domestic and international tourism center. For 60 years, the Sabha desalination plant enabled the city to grow in the desert, serving as the water artery for life, hotels, and attractions, as well as advanced",
+    "link": "https://www.mekorot-int.com/blog/project/sabha-and-the-sea-line/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-09T21:26:17.187407+00:00"
+  },
+  {
+    "id": "9a91674a6ee47b6f",
+    "empresa_id": "mekorot_israel",
+    "empresa_nome": "Mekorot — Companhia Nacional de Água de Israel",
+    "estado": "Israel",
+    "titulo": "The Yarkon River Redemption Project",
+    "resumo": "We are especially proud that the “Yarkon River Redemption ” project has been shortlisted for the international Global Water Intelligence awards in the “Municipal Reuse Project of the Year” category. This achievement reflects significant international recognition of Mekorot’s inno",
+    "link": "https://www.mekorot-int.com/blog/project/the-yarkon-river-redemption-project/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-09T21:26:17.187538+00:00"
+  },
+  {
     "id": "a40a39451f4ccc4e",
     "empresa_id": "cedae",
     "empresa_nome": "Cedae",
