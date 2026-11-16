@@ -1,5 +1,41 @@
 [
   {
+    "id": "0f8fafbe5d669036",
+    "empresa_id": "sanepar",
+    "empresa_nome": "Sanepar",
+    "estado": "PR",
+    "titulo": "Portal da Transparência - SIC",
+    "resumo": "Fique por dentro da gestão da Sanepar. Aqui você acompanha nossos investimentos, despesas, contratos e ações para levar saneamento de qualidade a todos. A transparência fortalece o nosso diálogo. Exerça o seu direito ao controle social!",
+    "link": "https://transparencia.sanepar.com.br/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-16T20:49:45.210422+00:00"
+  },
+  {
+    "id": "a61e5af5870b3f89",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Com a melhor cobertura de coleta de esgoto do Brasil, Limeira vence prêmio do Instituto Trata Brasil",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/limeira/com-a-melhor-cobertura-de-coleta-de-esgoto-do-brasil-limeira-vence-premio-do-instituto-trata-brasil",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-16T20:56:15.456299+00:00"
+  },
+  {
+    "id": "911fe31d4a14941d",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "BRK destaca a importância da inovação, da excelência e da busca contínua por melhores resultados no Dia da Qualidade",
+    "resumo": "",
+    "link": "https://www.brkambiental.com.br/limeira/brk-destaca-a-importancia-da-inovacao-da-excelencia-e-da-busca-continua-por-melhores-resultados-no-dia-da-qualidade",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-16T20:56:15.456392+00:00"
+  },
+  {
     "id": "45f4430858371e26",
     "empresa_id": "mekorot_israel",
     "empresa_nome": "Mekorot — Companhia Nacional de Água de Israel",
