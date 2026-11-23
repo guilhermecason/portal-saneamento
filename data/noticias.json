@@ -1,5 +1,77 @@
 [
   {
+    "id": "ae3ec441f524afd9",
+    "empresa_id": "cedae",
+    "empresa_nome": "Cedae",
+    "estado": "RJ",
+    "titulo": "Cedae inicia obras para reforçar o abastecimento de água em Barra do Piraí",
+    "resumo": "A Cedae iniciou, na última segunda-feira (9/11), novas obras de expansão do sistema de abastecimento de água em Barra do Piraí. As intervenções vão beneficiar diretamente mais de 7 mil moradores dos bairros Boca do Mato, Carbocálcio, Chalé, Parque Santana, Ponte do Andrade, Ponte",
+    "link": "https://www.cedae.com.br/noticias/detalhe/cedae-inicia-obras-para-reforcar-o-abastecimento-de-agua-em-barra-do-pirai/id/1044",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:27:53.056883+00:00"
+  },
+  {
+    "id": "8d7f7bc0e54873e0",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "MUSEU UNIVERSO COMPESA LEVA EXPOSIÇÃO SOBRE EMERGÊNCIA CLIMÁTICA A ESCOLAS DO INTERIOR DE PERNAMBUCO",
+    "resumo": "Levar conhecimento, despertar a consciência ambiental e aproximar a cultura de novos públicos. É com essa proposta que o Museu Universo Compesa inicia, nos dias 26 e 27, o projeto “Museu Universo Compesa – Mostras Itinerantes”, que terá sua primeira edição nas cidades de Arcoverd",
+    "link": "https://servicos.compesa.com.br/museu-universo-compesa-leva-exposicao-sobre-emergencia-climatica-a-escolas-do-interior-de-pernambuco/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:30:35.426156+00:00"
+  },
+  {
+    "id": "1c48c5b42255a465",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "COMPESA INICIA NOVA ETAPA DO SANEAMENTO EM PERNAMBUCO NA PRÓXIMA SEGUNDA-FEIRA (23)",
+    "resumo": "A Companhia Pernambucana de Saneamento (Compesa) inicia, na próxima segunda-feira (23), uma nova etapa na prestação dos serviços de saneamento em Pernambuco, com o começo da operação das concessionárias responsáveis pelos serviços de abastecimento de água e esgotamento sanitário.",
+    "link": "https://servicos.compesa.com.br/compesa-inicia-nova-etapa-do-saneamento-em-pernambuco-na-proxima-segunda-feira-23/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:30:35.426290+00:00"
+  },
+  {
+    "id": "50bde303f95829ec",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "PRESIDENTE DA COMPESA VISTORIA OBRAS EM PETROLINA",
+    "resumo": "O presidente esteve no canteiro, conversou com a equipe técnica e conferiu de perto o andamento das intervenções. Apenas essa obra visa ampliar a capacidade de produção de água para a cidade em mais 400 litros por segundo. A previsão de conclusão é para o primeiro semestre do pró",
+    "link": "https://servicos.compesa.com.br/presidente-da-compesa-vistoria-obras-em-petrolina/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:30:35.426355+00:00"
+  },
+  {
+    "id": "124c58988509d364",
+    "empresa_id": "compesa",
+    "empresa_nome": "Compesa",
+    "estado": "PE",
+    "titulo": "PRESIDENTE DA COMPESA RECEBE IMPRENSA DE PETROLINA PARA FALAR SOBRE A CONCESSÃO PARCIAL DOS SERVIÇOS DA COMPESA",
+    "resumo": "Durante o encontro, o presidente destacou o papel da Compesa, que continuará responsável pela realização de obras estruturantes para ampliar a produção de água no Estado, a exemplo de construção de adutoras, unidades de produção e de tratamento de água, além de barragens.",
+    "link": "https://servicos.compesa.com.br/presidente-da-compesa-recebe-imprensa-de-petrolina-para-falar-sobre-a-concessao-parcial-dos-servicos-da-compesa/",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:30:35.426422+00:00"
+  },
+  {
+    "id": "8be425312187aaa8",
+    "empresa_id": "brk",
+    "empresa_nome": "BRK Ambiental",
+    "estado": "Nacional (privada)",
+    "titulo": "Laboratório Móvel da BRK leva educação ambiental a alunos do SESI em Porto Ferreira",
+    "resumo": "Estudantes do 3º ano do Ensino Fundamental do SESI de Porto Ferreira participaram este mês de uma ação promovida pela BRK, concessionária responsável pelos serviços de água e esgoto no município. Com o apoio do Laboratório Móvel, a iniciativa apresentou aos alunos as etapas do tr",
+    "link": "https://www.brkambiental.com.br/porto-ferreira/laboratorio-movel-da-brk-leva-educacao-ambiental-a-alunos-do-sesi-em-porto-ferreira",
+    "data_publicada": "",
+    "status": "em_operacao",
+    "coletado_em": "2026-11-23T22:33:27.937879+00:00"
+  },
+  {
     "id": "0f8fafbe5d669036",
     "empresa_id": "sanepar",
     "empresa_nome": "Sanepar",
